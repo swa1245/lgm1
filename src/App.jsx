@@ -13,6 +13,8 @@ import Accessories from './components/Accessories'
 import InlineSkates from './components/pages/InlineSkates'
 import Wheels from './components/pages/Wheels'
 import Boots from './components/pages/Boots'
+import RollerSkates from './components/pages/RollerSkates'
+import Frames from './components/pages/Frames'
 
 const App = () => {
   return (
@@ -36,6 +38,8 @@ const App = () => {
           <Route path="/inline-skates" element={<InlineSkates />} />
           <Route path="/wheels" element={<Wheels />} />
           <Route path="/boots" element={<Boots />} />
+          <Route path="/roller-skates" element={<RollerSkates />} />
+          <Route path="/frames" element={<Frames />} />
         </Routes>
         <footer className="bg-white text-gray-900 py-8 text-center">
           <p>Copyright 2025 LGM Sports Online India</p>

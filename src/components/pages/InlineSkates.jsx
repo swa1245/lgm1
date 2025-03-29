@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import wheels from '../../assets/inline/banner/w.png'
 import boats from '../../assets/inline/banner/b.png'
 import frames from '../../assets/inline/banner/f.png'
-import bg from '../../assets/inline/banner/bg.png'
+import bg from '../../assets/inline/banner/bg.webp'
 
 const InlineSkates = () => {
   return (
@@ -71,14 +71,14 @@ const InlineSkates = () => {
           <div className="w-1/2 relative">
             <div className="relative group">
               <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/5 to-orange-500/5 rounded-2xl blur-2xl group-hover:from-blue-600/10 group-hover:to-orange-500/10 transition duration-500"></div>
-              <div className="relative bg-white rounded-2xl p-8 shadow-xl shadow-gray-100/50">
+              <div className="relative">
                 <img 
                   src={bg}
                   alt="Pro Series Inline Skates"
                   className="w-[120%] h-auto transform -rotate-12 group-hover:rotate-0 transition-all duration-700"
                 />
                 {/* Product Details Card */}
-                <div className="absolute top-6 right-6 bg-white rounded-lg p-4 shadow-lg border border-gray-100">
+                {/* <div className="absolute top-6 right-6 bg-white rounded-lg p-4 shadow-lg border border-gray-100">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="h-2 w-2 rounded-full bg-green-500"></div>
                     <span className="text-gray-900 font-medium">In Stock</span>
@@ -96,8 +96,8 @@ const InlineSkates = () => {
                       <span>•</span>
                       <span>ABEC-9 Bearings</span>
                     </div>
-                  </div>
-                </div>
+                  </div> */}
+                {/* </div> */}
               </div>
             </div>
           </div>
@@ -149,9 +149,11 @@ const InlineSkates = () => {
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-1">Pro Series X1</h3>
               <p className="text-gray-500 text-sm mb-4">Competition-grade speed skates</p>
-              <button className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
-                Add to Cart
-              </button>
+              <Link to="/roller-skates" className="block">
+                <button className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
+                  Shop Now
+                </button>
+              </Link>
             </div>
 
             {/* Boots */}
