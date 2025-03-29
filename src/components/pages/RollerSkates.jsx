@@ -1,12 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import SubNav from '../SubNav'
 import wheels from '../../assets/inline/banner/w.png'
 import boots from '../../assets/Quad Shoes/Classic Quad Shoes/1000210301 (1).png'
 import frames from '../../assets/inline/banner/f.png'
 import bg from '../../assets/roller/bg2.webp'
 const RollerSkates = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-200 from-10% via-blue-200 via-50% to-white to-90%">
+    <div className="min-h-screen bg-white">
+      <SubNav />
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20">
         {/* Accent Lines */}
@@ -61,55 +63,50 @@ const RollerSkates = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-gradient-to-br from-orange-100 from-10% via-blue-100 via-50% to-transparent to-90%">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-heading font-bold text-gray-900 mb-4">Featured Products</h2>
-            <p className="text-lg text-gray-600">Discover our premium collection of quad roller skates</p>
+          {/* Section Header */}
+          <div className="flex items-end justify-between mb-16">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Featured Products</h2>
+              <p className="text-gray-500">Discover our premium collection of quad skating equipment</p>
+            </div>
+            <div className="flex items-center gap-4">
+              <button className="p-2 rounded-lg border border-gray-200 hover:border-gray-300 transition-colors">
+                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button className="p-2 rounded-lg border border-gray-200 hover:border-gray-300 transition-colors">
+                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Wheels */}
+          {/* Products Grid */}
+          <div className="grid grid-cols-4 gap-8">
+            {/* Quad Shoes */}
             <div className="group">
               <div className="relative bg-white rounded-xl overflow-hidden mb-4 shadow-lg shadow-gray-100/50">
-                <div className="absolute top-4 right-4 z-10">
-                  <div className="px-3 py-1 bg-white shadow-lg text-gray-900 font-medium rounded-full">Premium</div>
+                <div className="absolute top-4 left-4 z-10">
+                  <div className="px-3 py-1 bg-blue-600 text-white text-sm font-medium rounded-full">New</div>
                 </div>
-                <div className="p-6">
-                  <img 
-                    src={wheels}
-                    alt="Premium Wheels"
-                    className="w-full h-64 object-contain transform group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-1">Premium Wheels</h3>
-              <p className="text-gray-500 text-sm mb-4">High-performance quad wheels</p>
-              <Link to="/wheels" className="block">
-                <button className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
-                  Shop Now
-                </button>
-              </Link>
-            </div>
-
-            {/* Boots */}
-            <div className="group">
-              <div className="relative bg-white rounded-xl overflow-hidden mb-4 shadow-lg shadow-gray-100/50">
                 <div className="absolute top-4 right-4 z-10">
-                  <div className="px-3 py-1 bg-white shadow-lg text-gray-900 font-medium rounded-full">Elite</div>
+                  <div className="px-3 py-1 bg-white shadow-lg text-gray-900 font-medium rounded-full">₹2,999</div>
                 </div>
                 <div className="p-6">
                   <img 
                     src={boots}
-                    alt="Elite Boots"
+                    alt="Pro Quad Shoes"
                     className="w-full h-64 object-contain transform group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-1">Elite Boots</h3>
-              <p className="text-gray-500 text-sm mb-4">Professional quad boots</p>
+              <h3 className="text-lg font-semibold text-gray-900 mb-1">Pro Quad Shoes</h3>
+              <p className="text-gray-500 text-sm mb-4">Professional quad skating boots</p>
               <Link to="/boots" className="block">
                 <button className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
                   Shop Now
@@ -117,28 +114,77 @@ const RollerSkates = () => {
               </Link>
             </div>
 
-            {/* Frames */}
+            {/* Quad Wheels */}
             <div className="group">
               <div className="relative bg-white rounded-xl overflow-hidden mb-4 shadow-lg shadow-gray-100/50">
                 <div className="absolute top-4 right-4 z-10">
-                  <div className="px-3 py-1 bg-white shadow-lg text-gray-900 font-medium rounded-full">Pro</div>
+                  <div className="px-3 py-1 bg-white shadow-lg text-gray-900 font-medium rounded-full">₹1,499</div>
                 </div>
                 <div className="p-6">
                   <img 
-                    src={frames}
-                    alt="Pro Frames"
+                    src={wheels}
+                    alt="Quad Wheels"
                     className="w-full h-64 object-contain transform group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-1">Pro Frames</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-1">Elite Quad Wheels</h3>
+              <p className="text-gray-500 text-sm mb-4">High-performance quad wheels</p>
+              <Link to="/quad-wheels" className="block">
+                <button className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
+                  Shop Now
+                </button>
+              </Link>
+            </div>
+
+            {/* Quad Frames */}
+            <div className="group">
+              <div className="relative bg-white rounded-xl overflow-hidden mb-4 shadow-lg shadow-gray-100/50">
+                <div className="absolute top-4 right-4 z-10">
+                  <div className="px-3 py-1 bg-white shadow-lg text-gray-900 font-medium rounded-full">₹1,999</div>
+                </div>
+                <div className="p-6">
+                  <img 
+                    src={frames}
+                    alt="Quad Frames"
+                    className="w-full h-64 object-contain transform group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-1">Pro Quad Frames</h3>
               <p className="text-gray-500 text-sm mb-4">Competition-grade frames</p>
               <Link to="/frames" className="block">
                 <button className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
                   Coming Soon
                 </button>
               </Link>
+            </div>
+
+            {/* Complete Set */}
+            <div className="group">
+              <div className="relative bg-white rounded-xl overflow-hidden mb-4 shadow-lg shadow-gray-100/50">
+                <div className="absolute top-4 left-4 z-10">
+                  <div className="px-3 py-1 bg-orange-500 text-white text-sm font-medium rounded-full">Best Value</div>
+                </div>
+                <div className="absolute top-4 right-4 z-10">
+                  <div className="px-3 py-1 bg-white shadow-lg text-gray-900 font-medium rounded-full">₹5,999</div>
+                </div>
+                <div className="p-6">
+                  <img 
+                    src={bg}
+                    alt="Complete Quad Set"
+                    className="w-full h-64 object-contain transform group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-1">Complete Quad Set</h3>
+              <p className="text-gray-500 text-sm mb-4">Professional complete setup</p>
+              <button className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
+                Add to Cart
+              </button>
             </div>
           </div>
         </div>

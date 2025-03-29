@@ -15,6 +15,7 @@ import Wheels from './components/pages/Wheels'
 import Boots from './components/pages/Boots'
 import RollerSkates from './components/pages/RollerSkates'
 import Frames from './components/pages/Frames'
+import QuadWheels from './components/pages/QuadWheels'
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="/boots" element={<Boots />} />
           <Route path="/roller-skates" element={<RollerSkates />} />
           <Route path="/frames" element={<Frames />} />
+          <Route path="/quad-wheels" element={<QuadWheels />} />
         </Routes>
         <footer className="bg-white text-gray-900 py-8 text-center">
           <p>Copyright 2025 LGM Sports Online India</p>

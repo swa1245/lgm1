@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import SubNav from '../SubNav'
 import wheels from '../../assets/inline/banner/w.png'
 import boats from '../../assets/inline/banner/b.png'
 import frames from '../../assets/inline/banner/f.png'
@@ -7,9 +8,15 @@ import bg from '../../assets/inline/banner/bg.webp'
 
 const InlineSkates = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-200 from-10% via-blue-200 via-50% to-white to-90%">
+    <div className="min-h-screen bg-white">
+      <SubNav />
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20">
+        {/* Background Glow */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-orange-500/5"></div>
+        </div>
+
         {/* Accent Lines */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 via-blue-500 to-transparent"></div>
         <div className="absolute bottom-0 right-0 w-full h-1 bg-gradient-to-l from-orange-500 via-blue-500 to-transparent"></div>
@@ -20,47 +27,51 @@ const InlineSkates = () => {
             <div className="space-y-10">
               {/* Premium Badge */}
               <div className="inline-flex items-center">
-                <div className="px-4 py-2 bg-white rounded-lg shadow-md border border-gray-100">
-                  <span className="text-gray-600 font-medium tracking-wide text-sm uppercase">New Collection 2025</span>
+                <div className="px-4 py-2 bg-white/90 backdrop-blur rounded-lg shadow-xl border border-gray-100">
+                  <span className="text-gray-900 font-medium tracking-wide text-sm uppercase">New Collection 2025</span>
                 </div>
               </div>
               
               {/* Main Heading */}
               <div>
-                <h1 className="text-[4.5rem] leading-none font-bold text-gray-900">
+                <h1 className="text-[4.5rem] leading-none font-bold">
                   Premium<br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">
                     Inline Skates
                   </span>
                 </h1>
-                <p className="mt-6 text-lg text-gray-600 max-w-xl leading-relaxed">
+                <p className="mt-6 text-lg text-gray-700 max-w-xl leading-relaxed">
                   Experience unparalleled performance with our professional-grade inline skates. 
                   Crafted for speed, designed for champions.
                 </p>
               </div>
 
-              {/* CTA Buttons */}
-              <div className="flex items-center gap-6">
-                <button className="px-8 py-4 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
+              {/* Price and CTA */}
+              <div className="flex items-center gap-8">
+                <div className="space-y-1">
+                  <div className="text-3xl font-bold text-gray-900">₹4,999</div>
+                  <div className="text-sm text-blue-600 font-medium">Limited time offer</div>
+                </div>
+                <button className="px-8 py-4 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center gap-2">
                   Shop Collection
-                </button>
-                <button className="px-8 py-4 bg-white text-gray-900 rounded-lg font-medium border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all duration-300">
-                  Learn More
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
                 </button>
               </div>
 
               {/* Product Features */}
               <div className="grid grid-cols-3 gap-8 pt-10 border-t border-gray-100">
-                <div>
-                  <div className="text-2xl font-semibold text-gray-900 mb-1">Premium</div>
+                <div className="group">
+                  <div className="text-2xl font-semibold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Premium</div>
                   <div className="text-gray-500">Materials</div>
                 </div>
-                <div>
-                  <div className="text-2xl font-semibold text-gray-900 mb-1">2 Years</div>
+                <div className="group">
+                  <div className="text-2xl font-semibold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">2 Years</div>
                   <div className="text-gray-500">Warranty</div>
                 </div>
-                <div>
-                  <div className="text-2xl font-semibold text-gray-900 mb-1">Global</div>
+                <div className="group">
+                  <div className="text-2xl font-semibold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Global</div>
                   <div className="text-gray-500">Shipping</div>
                 </div>
               </div>
@@ -70,34 +81,25 @@ const InlineSkates = () => {
           {/* Right Image */}
           <div className="w-1/2 relative">
             <div className="relative group">
-              <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/5 to-orange-500/5 rounded-2xl blur-2xl group-hover:from-blue-600/10 group-hover:to-orange-500/10 transition duration-500"></div>
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/10 to-orange-500/10 rounded-3xl blur-2xl group-hover:from-blue-600/20 group-hover:to-orange-500/20 transition-all duration-500"></div>
               <div className="relative">
                 <img 
                   src={bg}
                   alt="Pro Series Inline Skates"
                   className="w-[120%] h-auto transform -rotate-12 group-hover:rotate-0 transition-all duration-700"
                 />
-                {/* Product Details Card */}
-                {/* <div className="absolute top-6 right-6 bg-white rounded-lg p-4 shadow-lg border border-gray-100">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="h-2 w-2 rounded-full bg-green-500"></div>
-                    <span className="text-gray-900 font-medium">In Stock</span>
-                  </div>
-                  <div className="space-y-2 text-sm text-gray-500">
-                    <div className="flex items-center gap-2">
-                      <span>•</span>
-                      <span>Carbon Fiber Frame</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span>•</span>
-                      <span>110mm Premium Wheels</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span>•</span>
-                      <span>ABEC-9 Bearings</span>
-                    </div>
-                  </div> */}
-                {/* </div> */}
+                {/* Feature Tags */}
+                <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
+                  <span className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-medium text-gray-900">
+                    Carbon Fiber
+                  </span>
+                  <span className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-medium text-gray-900">
+                    ABEC-9
+                  </span>
+                  <span className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-medium text-gray-900">
+                    110mm Wheels
+                  </span>
+                </div>
               </div>
             </div>
           </div>
