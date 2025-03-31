@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import logo from '../assets/logo/lo.jpg'
 
 const Navbar = () => {
@@ -8,19 +9,21 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <img 
-              src={logo} 
-              alt="LGM Sports Logo" 
-              className="h-12"
-            />
+            <Link to="/">
+              <img 
+                src={logo} 
+                alt="LGM Sports Logo" 
+                className="h-12"
+              />
+            </Link>
           </div>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">Home</a>
-            <a href="#" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">Products</a>
-            <a href="#" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">About</a>
-            <a href="#" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">Contact</a>
+            <Link to="/" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">Home</Link>
+            <Link to="/products" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">Products</Link>
+            <Link to="/about" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">About</Link>
+            <Link to="/contact" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">Contact</Link>
           </div>
 
           {/* Search and Cart */}
