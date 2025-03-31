@@ -7,7 +7,6 @@ import CarbonFiber from './components/CarbonFiber'
 import SkateFoam from './components/SkateFoam'
 import OnePieceConstruction from './components/OnePieceConstruction'
 import SpeedFrames from './components/SpeedFrames'
-import Bearings from './components/Bearings'
 import Accessories from './components/pages/Accessories'
 import InlineSkates from './components/pages/InlineSkates'
 import Wheels from './components/pages/Wheels'
@@ -21,6 +20,10 @@ import GuardSet from './components/pages/GuardSet'
 import Hangers from './components/pages/Hangers'
 import Helmets from './components/pages/Helmets'
 import SpacersAxleAdapter from './components/pages/SpacersAxleAdapter'
+import QuadSkatesAccessories from './components/pages/QuadSkatesAccessories'
+import ShoesFrame from './components/pages/ShoesFrame'
+import SkinSuits from './components/pages/SkinSuits'
+import Bearings from './components/pages/Bearings'
 
 const App = () => {
   return (
@@ -36,7 +39,6 @@ const App = () => {
               <SkateFoam />
               <OnePieceConstruction />
               <SpeedFrames />
-              <Bearings />
             </>
           } />
           <Route path="/inline-skates" element={<InlineSkates />} />
@@ -52,6 +54,10 @@ const App = () => {
           <Route path="/hangers" element={<Hangers />} />
           <Route path="/helmets" element={<Helmets />} />
           <Route path="/spacers-axle-adapter" element={<SpacersAxleAdapter />} />
+          <Route path="/quad-skates-accessories" element={<QuadSkatesAccessories />} />
+          <Route path="/shoes-frame" element={<ShoesFrame />} />
+          <Route path="/skin-suits" element={<SkinSuits />} />
+          <Route path="/bearings" element={<Bearings />} />
         </Routes>
         <footer className="bg-white text-gray-900 py-8 text-center">
           <p>Copyright 2025 LGM Sports Online India</p>

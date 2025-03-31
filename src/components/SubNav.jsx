@@ -15,18 +15,18 @@ const SubNav = () => {
     { name: 'Quad & Inline Bearings', path: '/bearings' },
     { name: 'QuadSkates & Accessories', path: '/quad-skates-accessories' },
     { name: 'Shoes & Frame', path: '/shoes-frame' },
-    { name: 'SkinSuits', path: '/skinsuits' }
+    { name: 'SkinSuits', path: '/skin-suits' }
   ]
 
   return (
-    <div className="bg-gray-100 border-b border-gray-200">
+    <div className="bg-orange-500 text-white border-b border-orange-600">
       <div className="container mx-auto px-4 py-3">
-        <div className="flex items-center gap-6 overflow-x-auto whitespace-nowrap pb-2">
+        <div className="flex flex-wrap items-center justify-center gap-4">
           {categories.map((category, index) => (
             <Link
               key={index}
               to={category.path}
-              className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors duration-300"
+              className="text-white hover:bg-blue-600 px-3 py-1 rounded transition-colors duration-300 text-sm font-medium"
             >
               {category.name}
             </Link>
