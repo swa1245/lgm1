@@ -17,6 +17,10 @@ import Frames from './components/pages/Frames'
 import QuadWheels from './components/pages/QuadWheels'
 import BabyTenacitySkates from './components/pages/BabyTenacitySkates'
 import Bags from './components/pages/Bags'
+import GuardSet from './components/pages/GuardSet'
+import Hangers from './components/pages/Hangers'
+import Helmets from './components/pages/Helmets'
+import SpacersAxleAdapter from './components/pages/SpacersAxleAdapter'
 
 const App = () => {
   return (
@@ -44,6 +48,10 @@ const App = () => {
           <Route path="/accessories" element={<Accessories />} />
           <Route path="/baby-tenacity-skates" element={<BabyTenacitySkates />} />
           <Route path="/bags" element={<Bags />} />
+          <Route path="/guard-set" element={<GuardSet />} />
+          <Route path="/hangers" element={<Hangers />} />
+          <Route path="/helmets" element={<Helmets />} />
+          <Route path="/spacers-axle-adapter" element={<SpacersAxleAdapter />} />
         </Routes>
         <footer className="bg-white text-gray-900 py-8 text-center">
           <p>Copyright 2025 LGM Sports Online India</p>

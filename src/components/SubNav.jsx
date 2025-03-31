@@ -8,7 +8,7 @@ const SubNav = () => {
     { name: 'Accessories', path: '/accessories' },
     { name: 'BABY & TENACITY SKATE', path: '/baby-tenacity-skates' },
     { name: 'Bags', path: '/bags' },
-    { name: 'GuardSet & Ezeefit', path: '/guardset-ezeefit' },
+    { name: 'GuardSet & Ezeefit', path: '/guard-set' },
     { name: 'Hangers', path: '/hangers' },
     { name: 'Helmets', path: '/helmets' },
     { name: 'Spacers-Axle-Adapter', path: '/spacers-axle-adapter' },
