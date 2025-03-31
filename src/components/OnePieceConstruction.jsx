@@ -1,5 +1,5 @@
 import React from 'react'
-import constructionImage from '../assets/home/c1.jpg'  // Using the same image temporarily
+import onePieceImage from '../assets/BABY & TENACITY SKATE (Acessories)/TENACITY SKATE/Tenacity skate.png'  
 
 const OnePieceConstruction = () => {
   return (
@@ -50,7 +50,7 @@ const OnePieceConstruction = () => {
               <div 
                 className="absolute inset-0 bg-cover rounded-full transform -rotate-45 transition-transform duration-700 group-hover:rotate-[0deg]"
                 style={{
-                  backgroundImage: `url(${constructionImage})`
+                  backgroundImage: `url(${onePieceImage})`
                 }}
               ></div>
             </div>

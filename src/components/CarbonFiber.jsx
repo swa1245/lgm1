@@ -1,6 +1,5 @@
 import React from 'react'
-import carbonFiber from '../assets/home/c1.jpg'
-import skateImg from '../assets/home/c1.jpg'  // Using the same image temporarily for both
+import carbonFiber from '../assets/BABY & TENACITY SKATE (Acessories)/Baby skate with shoes/Baby skate with shoe.png'
 
 const CarbonFiber = () => {
   return (
@@ -47,8 +46,6 @@ const CarbonFiber = () => {
                   backgroundImage: `url(${carbonFiber})`
                 }}
               ></div>
-              {/* Product image */}
-              
             </div>
           </div>
         </div>

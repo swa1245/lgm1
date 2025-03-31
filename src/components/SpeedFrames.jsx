@@ -1,5 +1,5 @@
 import React from 'react'
-import framesImage from '../assets/home/c1.jpg'  // Using the same image temporarily
+import speedFrameImage from '../assets/Quad Frame/Aluminium Quad Frame/1000210632.png'  
 
 const SpeedFrames = () => {
   return (
@@ -65,7 +65,7 @@ const SpeedFrames = () => {
               <div 
                 className="absolute inset-0 bg-cover rounded-full transform -rotate-45 transition-transform duration-700 group-hover:rotate-[0deg]"
                 style={{
-                  backgroundImage: `url(${framesImage})`
+                  backgroundImage: `url(${speedFrameImage})`
                 }}
               ></div>
             </div>

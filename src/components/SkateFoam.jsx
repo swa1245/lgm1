@@ -1,5 +1,5 @@
 import React from 'react'
-import foamImage from '../assets/home/c1.jpg'  // Using the same image temporarily
+import foamImage from '../assets/Guard Set & Ezeefit/Foam Knee Pad/1000211137.png'
 
 const SkateFoam = () => {
   return (
