@@ -15,6 +15,8 @@ import Boots from './components/pages/Boots'
 import RollerSkates from './components/pages/RollerSkates'
 import Frames from './components/pages/Frames'
 import QuadWheels from './components/pages/QuadWheels'
+import BabyTenacitySkates from './components/pages/BabyTenacitySkates'
+import Bags from './components/pages/Bags'
 
 const App = () => {
   return (
@@ -40,6 +42,8 @@ const App = () => {
           <Route path="/frames" element={<Frames />} />
           <Route path="/quad-wheels" element={<QuadWheels />} />
           <Route path="/accessories" element={<Accessories />} />
+          <Route path="/baby-tenacity-skates" element={<BabyTenacitySkates />} />
+          <Route path="/bags" element={<Bags />} />
         </Routes>
         <footer className="bg-white text-gray-900 py-8 text-center">
           <p>Copyright 2025 LGM Sports Online India</p>

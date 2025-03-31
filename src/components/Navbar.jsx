@@ -21,9 +21,10 @@ const Navbar = () => {
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">Home</Link>
-            <Link to="/products" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">Products</Link>
-            <Link to="/about" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">About</Link>
-            <Link to="/contact" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">Contact</Link>
+            <Link to="/inline-skates" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">Inline Skates</Link>
+            <Link to="/roller-skates" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">Roller Skates</Link>
+            <Link to="/baby-tenacity-skates" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">Baby & Tenacity</Link>
+            <Link to="/accessories" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">Accessories</Link>
           </div>
 
           {/* Search and Cart */}

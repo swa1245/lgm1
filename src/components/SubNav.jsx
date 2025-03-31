@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom'
 
 const SubNav = () => {
   const categories = [
+    { name: 'Inline Skates', path: '/inline-skates' },
+    { name: 'Roller Skates', path: '/roller-skates' },
     { name: 'Accessories', path: '/accessories' },
-    { name: 'BABY & TENACITY SKATE', path: '/baby-tenacity-skate' },
+    { name: 'BABY & TENACITY SKATE', path: '/baby-tenacity-skates' },
     { name: 'Bags', path: '/bags' },
     { name: 'GuardSet & Ezeefit', path: '/guardset-ezeefit' },
     { name: 'Hangers', path: '/hangers' },
