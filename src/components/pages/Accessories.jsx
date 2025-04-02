@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useCart } from '../../context/CartContext';
 import allenKey1 from '../../assets/Accessories/Allen Key/1000211296(1).png'
 import allenKey2 from '../../assets/Accessories/Allen Key/1000211296.png'
 import puBush1 from '../../assets/Accessories/PU  Bush/1000211300(1).png'
@@ -11,7 +12,8 @@ import shoeNuts2 from '../../assets/Accessories/shoe Nuts (Quad)/1000211299.png'
 import SubNav from '../SubNav'
 
 const Accessories = () => {
-  const [view, setView] = useState('grid')
+  const [view, setView] = useState('grid');
+  const { addToCart } = useCart()
 
   const accessories = [
     {
@@ -158,7 +160,13 @@ const Accessories = () => {
                 <div className="p-4 pt-0">
                   <div className="flex items-center justify-between">
                     <div className="text-lg font-bold text-gray-900">₹{product.price}</div>
-                    <button className="inline-flex items-center justify-center px-4 py-1.5 bg-gray-900 hover:bg-gray-800 text-white text-sm font-medium rounded-lg transition-colors duration-300">
+                    <button 
+                      onClick={() => addToCart(product)}
+                      className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2 cursor-pointer"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                      </svg>
                       Add to Cart
                     </button>
                   </div>

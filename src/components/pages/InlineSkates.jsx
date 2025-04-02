@@ -1,22 +1,66 @@
-import React from 'react'
+import React from 'react';
+import { useCart } from '../../context/CartContext';
 import { Link } from 'react-router-dom'
 import SubNav from '../SubNav'
-import wheels from '../../assets/inline/banner/w.png'
-import boats from '../../assets/inline/banner/b.png'
-import frames from '../../assets/inline/banner/f.png'
+import wheels from '../../assets/Quad Wheels/Rubber wheel/Photo from Rucha Lembhe.jpg'
+import boats from '../../assets/BABY & TENACITY SKATE (Acessories)/Baby skate full kit/_MG_2054.jpg'
+import frames from '../../assets/technology/speed-frames.jpg'
 import bg from '../../assets/inline/banner/bg.webp'
 
 const InlineSkates = () => {
+  const { addToCart } = useCart();
+
+  const products = [
+    {
+      id: 'pro-series-x1',
+      name: 'Pro Series X1',
+      description: 'Competition-grade speed skates',
+      price: 4999,
+      image: bg,
+      category: 'inline-skates'
+    },
+    {
+      id: 'elite-boots',
+      name: 'Elite Boots',
+      description: 'Custom-fitted racing boots',
+      price: 2999,
+      image: boats,
+      category: 'boots'
+    },
+    {
+      id: 'speed-frames',
+      name: 'Speed Frames',
+      description: 'Lightweight aluminum frames',
+      price: 1999,
+      image: frames,
+      category: 'speed-frames'
+    },
+    {
+      id: 'racing-wheels',
+      name: 'Racing Wheels',
+      description: 'High-performance racing wheels',
+      price: 1499,
+      image: wheels,
+      category: 'wheels'
+    }
+  ];
+
+  const handleAddToCart = (product) => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      description: product.description,
+      price: product.price,
+      image: product.image,
+      category: product.category
+    });
+  };
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-orange-200 from-10% via-blue-200 via-50% to-white to-90%">
       <SubNav />
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20">
-        {/* Background Glow */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-orange-500/5"></div>
-        </div>
-
         {/* Accent Lines */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 via-blue-500 to-transparent"></div>
         <div className="absolute bottom-0 right-0 w-full h-1 bg-gradient-to-l from-orange-500 via-blue-500 to-transparent"></div>
@@ -52,10 +96,13 @@ const InlineSkates = () => {
                   <div className="text-3xl font-bold text-gray-900">₹4,999</div>
                   <div className="text-sm text-blue-600 font-medium">Limited time offer</div>
                 </div>
-                <button className="px-8 py-4 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center gap-2">
-                  Shop Collection
+                <button 
+                  onClick={() => handleAddToCart(products[0])}
+                  className="px-8 py-4 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center gap-2 cursor-pointer"
+                >
+                  Add to Cart
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                 </button>
               </div>
@@ -84,22 +131,10 @@ const InlineSkates = () => {
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/10 to-orange-500/10 rounded-3xl blur-2xl group-hover:from-blue-600/20 group-hover:to-orange-500/20 transition-all duration-500"></div>
               <div className="relative">
                 <img 
-                  src={bg}
+                  src={bg} 
                   alt="Pro Series Inline Skates"
                   className="w-[120%] h-auto transform -rotate-12 group-hover:rotate-0 transition-all duration-700"
                 />
-                {/* Feature Tags */}
-                <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
-                  <span className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-medium text-gray-900">
-                    Carbon Fiber
-                  </span>
-                  <span className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-medium text-gray-900">
-                    ABEC-9
-                  </span>
-                  <span className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-medium text-gray-900">
-                    110mm Wheels
-                  </span>
-                </div>
               </div>
             </div>
           </div>
@@ -115,126 +150,44 @@ const InlineSkates = () => {
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Featured Products</h2>
               <p className="text-gray-500">Discover our premium collection of skating equipment</p>
             </div>
-            <div className="flex items-center gap-4">
-              <button className="p-2 rounded-lg border border-gray-200 hover:border-gray-300 transition-colors">
-                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <button className="p-2 rounded-lg border border-gray-200 hover:border-gray-300 transition-colors">
-                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
           </div>
 
           {/* Products Grid */}
-          <div className="grid grid-cols-4 gap-8">
-            {/* Skates */}
-            <div className="group">
-              <div className="relative bg-white rounded-xl overflow-hidden mb-4 shadow-lg shadow-gray-100/50">
-                <div className="absolute top-4 left-4 z-10">
-                  <div className="px-3 py-1 bg-blue-600 text-white text-sm font-medium rounded-full">New</div>
-                </div>
-                <div className="absolute top-4 right-4 z-10">
-                  <div className="px-3 py-1 bg-white shadow-lg text-gray-900 font-medium rounded-full">$599</div>
-                </div>
-                <div className="p-6">
-                  <img 
-                    src={bg}
-                    alt="Pro Series Skates"
-                    className="w-full h-64 object-contain transform group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-1">Pro Series X1</h3>
-              <p className="text-gray-500 text-sm mb-4">Competition-grade speed skates</p>
-              <Link to="/roller-skates" className="block">
-                <button className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
-                  Shop Now
-                </button>
-              </Link>
-            </div>
-
-            {/* Boots */}
-            <div className="group">
-              <div className="relative bg-white rounded-xl overflow-hidden mb-4 shadow-lg shadow-gray-100/50">
-                <div className="absolute top-4 right-4 z-10">
-                  <div className="px-3 py-1 bg-white shadow-lg text-gray-900 font-medium rounded-full">$299</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {products.map((product) => (
+              <div key={product.id} className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div className="relative">
+                  <div className="absolute top-4 right-4 z-10">
+                    <div className="px-3 py-1 bg-white shadow-lg text-gray-900 font-medium rounded-full">₹{product.price}</div>
+                  </div>
+                  <div className="p-6">
+                    <img 
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-64 object-contain transform group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
                 </div>
                 <div className="p-6">
-                  <img 
-                    src={boats}
-                    alt="Custom Boots"
-                    className="w-full h-64 object-contain transform group-hover:scale-110 transition-transform duration-500"
-                  />
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{product.name}</h3>
+                  <p className="text-gray-500 text-sm mb-4">{product.description}</p>
+                  <Link 
+                    to={`/${product.category}`}
+                    className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <span>Shop Now</span>
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </Link>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-1">Elite Boots</h3>
-              <p className="text-gray-500 text-sm mb-4">Custom-fitted racing boots</p>
-              <Link to="/boots" className="block">
-                <button className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
-                  Shop Now
-                </button>
-              </Link>
-            </div>
-
-            {/* Frames */}
-            <div className="group">
-              <div className="relative bg-white rounded-xl overflow-hidden mb-4 shadow-lg shadow-gray-100/50">
-                <div className="absolute top-4 right-4 z-10">
-                  <div className="px-3 py-1 bg-white shadow-lg text-gray-900 font-medium rounded-full">$199</div>
-                </div>
-                <div className="p-6">
-                  <img 
-                    src={frames}
-                    alt="Pro Frames"
-                    className="w-full h-64 object-contain transform group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-1">Carbon Frames</h3>
-              <p className="text-gray-500 text-sm mb-4">Ultralight racing frames</p>
-              <button className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
-                Add to Cart
-              </button>
-            </div>
-
-            {/* Wheels */}
-            <div className="group">
-              <div className="relative bg-white rounded-xl overflow-hidden mb-4 shadow-lg shadow-gray-100/50">
-                <div className="absolute top-4 left-4 z-10">
-                  <div className="px-3 py-1 bg-orange-500 text-white text-sm font-medium rounded-full">Sale</div>
-                </div>
-                <div className="absolute top-4 right-4 z-10">
-                  <div className="px-3 py-1 bg-white shadow-lg text-gray-900 font-medium rounded-full">$89</div>
-                </div>
-                <div className="p-6">
-                  <img 
-                    src={wheels}
-                    alt="Pro Wheels"
-                    className="w-full h-64 object-contain transform group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-1">Speed Wheels</h3>
-              <p className="text-gray-500 text-sm mb-4">Competition racing wheels</p>
-              <Link to="/wheels" className="block">
-                <button className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
-                  Shop Now
-                </button>
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default InlineSkates
+export default InlineSkates;

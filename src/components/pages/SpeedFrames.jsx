@@ -1,68 +1,79 @@
 import React, { useState } from 'react';
 import { useCart } from '../../context/CartContext';
-import classicQuad1 from '../../assets/Quad Shoes/Classic Quad Shoes/1000210301 (1).png'
-import classicQuad2 from '../../assets/Quad Shoes/Classic Quad Shoes/1000210418.png'
-import hqQuad1 from '../../assets/Quad Shoes/HQ Quad shoe/1000210424.png'
-import hqQuad2 from '../../assets/Quad Shoes/HQ Quad shoe/1000210425.png'
-import superQuad1 from '../../assets/Quad Shoes/Super Quad Shoes/1000210421.png'
-import superQuad2 from '../../assets/Quad Shoes/Super Quad Shoes/1000210422.png'
-import superQuad3 from '../../assets/Quad Shoes/Super Quad Shoes/1000210423.png'
+import aluFrame1 from '../../assets/Quad Frame/Aluminium Quad Frame/1000210632.png'
+import aluFrame2 from '../../assets/Quad Frame/Aluminium Quad Frame/1000210637.png'
+import aluFrame3 from '../../assets/Quad Frame/Aluminium Quad Frame/1000210642.png'
+import nylonFrame1 from '../../assets/Quad Frame/Naylon Black Frame/1000210611.png'
+import nylonFrame2 from '../../assets/Quad Frame/Naylon Black Frame/1000210622.png'
 
-const Boots = () => {
+const SpeedFrames = () => {
   const [view, setView] = useState('grid');
   const { addToCart } = useCart()
 
-  const boots = [
+  const frames = [
     {
-      id: 1,
-      name: "Baby & Tenacity Shoes",
-      image: classicQuad1,
-      price: 1999,
-      description: "Perfect skating boots for beginners and young skaters",
+      id: 'alu-frame-1',
+      name: "Aluminum Quad Frame Pro",
+      image: aluFrame1,
+      price: 1499,
+      description: "Professional-grade aluminum quad frame for superior performance",
       specs: {
         brand: "LGM",
-        usage: "Skating",
-        size: "Baby & Tenacity Size",
-        material: "Synthetic"
+        material: "Aluminum",
+        weight: "Light",
+        durability: "High"
       }
     },
     {
-      id: 2,
-      name: "Classic Quad Shoes",
-      image: classicQuad2,
-      price: 2499,
-      description: "Traditional quad skating boots with timeless design",
+      id: 'alu-frame-2',
+      name: "Aluminum Racing Frame",
+      image: aluFrame2,
+      price: 1699,
+      description: "Lightweight racing frame for competitive skating",
       specs: {
         brand: "LGM",
-        usage: "Skating",
-        size: "All Size",
-        material: "Synthetic"
+        material: "Aluminum",
+        weight: "Ultra Light",
+        durability: "High"
       }
     },
     {
-      id: 3,
-      name: "HQ Quad Shoes",
-      image: hqQuad1,
-      price: 2999,
-      description: "High-quality quad skating boots for advanced skaters",
+      id: 'alu-frame-3',
+      name: "Pro Competition Frame",
+      image: aluFrame3,
+      price: 1899,
+      description: "Competition-grade aluminum frame for maximum speed",
       specs: {
         brand: "LGM",
-        usage: "Skating",
-        size: "All Size",
-        material: "Synthetic"
+        material: "Aluminum",
+        weight: "Ultra Light",
+        durability: "High"
       }
     },
     {
-      id: 4,
-      name: "Super Quad Shoes",
-      image: superQuad1,
-      price: 3499,
-      description: "Premium quad skating boots for professional performance",
+      id: 'nylon-frame-1',
+      name: "Nylon Speed Frame",
+      image: nylonFrame1,
+      price: 999,
+      description: "Durable nylon frame perfect for recreational skating",
       specs: {
         brand: "LGM",
-        usage: "Skating",
-        size: "All Size",
-        material: "Synthetic"
+        material: "Nylon",
+        weight: "Medium",
+        durability: "Medium"
+      }
+    },
+    {
+      id: 'nylon-frame-2',
+      name: "Nylon Comfort Frame",
+      image: nylonFrame2,
+      price: 1199,
+      description: "Comfortable nylon frame for everyday skating",
+      specs: {
+        brand: "LGM",
+        material: "Nylon",
+        weight: "Medium",
+        durability: "Medium"
       }
     }
   ]
@@ -72,10 +83,10 @@ const Boots = () => {
       {/* Header */}
       <div className="border-b border-gray-200">
         <div className="container mx-auto px-4 py-8">
-          <h1 className="text-4xl font-heading font-bold text-gray-900 mb-2">Quad Skating Boots</h1>
-          <p className="text-lg text-gray-600">Professional boots for quad skating</p>
+          <h1 className="text-4xl font-heading font-bold text-gray-900 mb-2">Speed Frames</h1>
+          <p className="text-lg text-gray-600">Professional frames for quad skating</p>
           <div className="flex items-center justify-between mt-6">
-            <p className="text-gray-600">{boots.length} products</p>
+            <p className="text-gray-600">{frames.length} products</p>
             <div className="flex items-center gap-4">
               <button 
                 onClick={() => setView('grid')}
@@ -101,13 +112,13 @@ const Boots = () => {
       {/* Products Grid */}
       <div className="container mx-auto px-4 py-12">
         <div className={`grid ${view === 'grid' ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'} gap-8`}>
-          {boots.map(boot => (
-            <div key={boot.id} className={`flex ${view === 'list' ? 'flex-row' : 'flex-col'} bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full`}>
+          {frames.map(frame => (
+            <div key={frame.id} className={`flex ${view === 'list' ? 'flex-row' : 'flex-col'} bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full`}>
               <div className={`${view === 'list' ? 'w-1/3 shrink-0' : 'w-full'}`}>
                 <div className="aspect-square relative bg-gray-50 p-6">
                   <img 
-                    src={boot.image} 
-                    alt={boot.name}
+                    src={frame.image} 
+                    alt={frame.name}
                     className="w-full h-full object-contain transform hover:scale-110 transition-transform duration-300"
                   />
                 </div>
@@ -115,8 +126,8 @@ const Boots = () => {
               <div className={`flex flex-col justify-between ${view === 'list' ? 'w-2/3' : 'w-full'}`}>
                 <div className="p-6 space-y-4">
                   <div>
-                    <h3 className="text-xl font-heading font-bold text-gray-900 hover:text-blue-600 transition-colors duration-300">{boot.name}</h3>
-                    <p className="mt-2 text-gray-600 line-clamp-2">{boot.description}</p>
+                    <h3 className="text-xl font-heading font-bold text-gray-900 hover:text-blue-600 transition-colors duration-300">{frame.name}</h3>
+                    <p className="mt-2 text-gray-600 line-clamp-2">{frame.description}</p>
                   </div>
                   <div className="grid grid-cols-2 gap-3 text-sm bg-gray-50 p-4 rounded-lg">
                     <div className="flex items-start space-x-2">
@@ -124,15 +135,7 @@ const Boots = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                       </svg>
                       <div>
-                        <span className="font-medium">Brand:</span> {boot.specs.brand}
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <svg className="w-4 h-4 text-gray-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                      </svg>
-                      <div>
-                        <span className="font-medium">Usage:</span> {boot.specs.usage}
+                        <span className="font-medium">Brand:</span> {frame.specs.brand}
                       </div>
                     </div>
                     <div className="flex items-start space-x-2">
@@ -140,15 +143,23 @@ const Boots = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
                       </svg>
                       <div>
-                        <span className="font-medium">Size:</span> {boot.specs.size}
+                        <span className="font-medium">Material:</span> {frame.specs.material}
                       </div>
                     </div>
                     <div className="flex items-start space-x-2">
                       <svg className="w-4 h-4 text-gray-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h14a2 2 0 012 2v12a4 4 0 01-4 4H7zm0 0h12M7 21V5m12 0v16"/>
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
                       </svg>
                       <div>
-                        <span className="font-medium">Material:</span> {boot.specs.material}
+                        <span className="font-medium">Weight:</span> {frame.specs.weight}
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <svg className="w-4 h-4 text-gray-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                      </svg>
+                      <div>
+                        <span className="font-medium">Durability:</span> {frame.specs.durability}
                       </div>
                     </div>
                   </div>
@@ -157,10 +168,10 @@ const Boots = () => {
                   <div className="flex items-center justify-between">
                     <div className="flex flex-col">
                       <span className="text-sm text-gray-500">Price</span>
-                      <span className="text-2xl font-heading font-bold text-gray-900">₹{boot.price.toLocaleString()}</span>
+                      <span className="text-2xl font-heading font-bold text-gray-900">₹{frame.price.toLocaleString()}</span>
                     </div>
                     <button 
-                      onClick={() => addToCart(boot)}
+                      onClick={() => addToCart(frame)}
                       className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2 cursor-pointer"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -181,30 +192,30 @@ const Boots = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto space-y-12">
             <section>
-              <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4">Professional Quad Boots</h2>
+              <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4">Professional Speed Frames</h2>
               <p className="text-gray-600 leading-relaxed">
-                Our professional quad boots are designed for serious skaters who demand the best in performance and comfort. Made with premium materials and expert craftsmanship, these boots provide excellent support and durability for all types of quad skating.
+                Our professional speed frames are engineered for maximum performance and durability. Available in both aluminum and nylon materials, these frames provide excellent stability and control for all types of quad skating.
               </p>
             </section>
 
             <section>
               <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4">Features & Benefits</h2>
               <p className="text-gray-600 leading-relaxed">
-                Each boot is crafted with high-quality leather, reinforced stitching, and ergonomic design to ensure maximum comfort and control. The boots feature padded collars, moisture-wicking linings, and anatomical footbeds for extended skating sessions.
+                Each frame is precision-engineered with high-quality materials. The aluminum frames offer superior strength-to-weight ratio for competitive skating, while our nylon frames provide excellent durability and value for recreational use.
               </p>
             </section>
 
             <section>
-              <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4">Size & Fit Guide</h2>
+              <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4">Material Guide</h2>
               <p className="text-gray-600 leading-relaxed">
-                For the best fit, we recommend measuring your feet carefully and referring to our size chart. Our boots are available in various widths to accommodate different foot shapes. The boots will break in and mold to your feet over time for a custom fit.
+                Choose aluminum frames for maximum performance and lightweight construction, perfect for speed skating and competition. Opt for nylon frames if you're looking for durability and comfort in recreational skating.
               </p>
             </section>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Boots
+export default SpeedFrames;

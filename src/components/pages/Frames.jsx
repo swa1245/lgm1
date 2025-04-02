@@ -1,106 +1,132 @@
 import React from 'react'
-import frames from '../../assets/inline/banner/f.png'
+import { useCart } from '../../context/CartContext'
+import SubNav from '../SubNav'
+import framesBanner from '../../assets/technology/speed-frames.jpg'
 
 const Frames = () => {
+  const { addToCart } = useCart();
+  
+  const frames = [
+    {
+      id: 'frame-1',
+      name: 'Carbon Speed Frame',
+      description: 'Professional racing frame with carbon fiber construction',
+      price: 15999,
+      image: '/images/frames/carbon-speed.jpg',
+      specs: {
+        material: 'Carbon Fiber',
+        wheelSize: '110mm-125mm',
+        length: '12.8"',
+        weight: '195g'
+      }
+    },
+    {
+      id: 'frame-2',
+      name: 'Aluminum Race Frame',
+      description: 'Lightweight aluminum frame for competitive racing',
+      price: 8999,
+      image: '/images/frames/aluminum-race.jpg',
+      specs: {
+        material: 'Aircraft Aluminum',
+        wheelSize: '100mm-110mm',
+        length: '12.5"',
+        weight: '245g'
+      }
+    },
+    // Add more frames as needed
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-200 from-10% via-blue-200 via-50% to-white to-90%">
+    <div className="min-h-screen bg-white">
+      <SubNav />
+      
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-20">
-        {/* Accent Lines */}
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 via-blue-500 to-transparent"></div>
-        <div className="absolute bottom-0 right-0 w-full h-1 bg-gradient-to-l from-orange-500 via-blue-500 to-transparent"></div>
-
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center mb-8">
-              <div className="px-4 py-2 bg-white rounded-lg shadow-md border border-gray-100">
-                <span className="text-gray-600 font-medium tracking-wide text-sm uppercase">Coming Soon</span>
-              </div>
-            </div>
-
-            <h1 className="text-5xl font-heading font-bold text-gray-900 mb-8">
-              Professional Quad Frames
-            </h1>
-
-            <p className="text-xl text-gray-600 leading-relaxed mb-12">
-              We're working on bringing you the best selection of professional quad frames. Stay tuned for our upcoming collection featuring premium materials and innovative designs.
-            </p>
-
-            <div className="relative w-full max-w-2xl mx-auto">
-              <img 
-                src={frames} 
-                alt="Professional Quad Frames"
-                className="w-full h-auto object-contain rounded-xl shadow-2xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/10 to-transparent rounded-xl"></div>
-            </div>
+      <div className="relative h-[60vh] bg-gray-900">
+        <img 
+          src={framesBanner}
+          alt="Skating Frames"
+          className="w-full h-full object-cover opacity-75"
+        />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-5xl font-bold text-white mb-4">Professional Frames</h1>
+            <p className="text-xl text-gray-200">Engineered for speed and precision</p>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Features Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              {/* Feature 1 */}
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-blue-100 text-blue-600 rounded-xl">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Premium Materials</h3>
-                <p className="text-gray-600">Crafted from high-grade aluminum and carbon fiber</p>
+      {/* Products Section */}
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {frames.map((frame) => (
+            <div key={frame.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="aspect-w-16 aspect-h-9">
+                <img 
+                  src={frame.image || framesBanner} 
+                  alt={frame.name}
+                  className="w-full h-64 object-cover"
+                />
               </div>
-
-              {/* Feature 2 */}
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-orange-100 text-orange-600 rounded-xl">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                  </svg>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{frame.name}</h3>
+                <p className="text-gray-600 mb-4">{frame.description}</p>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <span className="text-sm text-gray-500">Material</span>
+                      <p className="font-medium">{frame.specs.material}</p>
+                    </div>
+                    <div>
+                      <span className="text-sm text-gray-500">Wheel Size</span>
+                      <p className="font-medium">{frame.specs.wheelSize}</p>
+                    </div>
+                    <div>
+                      <span className="text-sm text-gray-500">Length</span>
+                      <p className="font-medium">{frame.specs.length}</p>
+                    </div>
+                    <div>
+                      <span className="text-sm text-gray-500">Weight</span>
+                      <p className="font-medium">{frame.specs.weight}</p>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-2xl font-bold text-gray-900">₹{frame.price}</span>
+                    <button 
+                      onClick={() => addToCart(frame)}
+                      className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2 cursor-pointer"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                      </svg>
+                      Add to Cart
+                    </button>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Performance Design</h3>
-                <p className="text-gray-600">Engineered for maximum speed and control</p>
-              </div>
-
-              {/* Feature 3 */}
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-green-100 text-green-600 rounded-xl">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Custom Options</h3>
-                <p className="text-gray-600">Multiple configurations for every style</p>
               </div>
             </div>
-          </div>
+          ))}
         </div>
-      </section>
+      </div>
 
       {/* Newsletter Section */}
-      <section className="py-20">
+      <div className="bg-gray-100 py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-xl mx-auto text-center">
-            <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4">Stay Updated</h2>
-            <p className="text-gray-600 mb-8">
-              Subscribe to our newsletter to be the first to know when our frames collection launches.
-            </p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Stay Updated</h2>
+            <p className="text-gray-600 mb-8">Subscribe to our newsletter for the latest product updates and offers.</p>
             <form className="flex gap-4">
               <input 
-                type="email" 
+                type="email"
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-              <button className="px-8 py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-all duration-300">
+              <button className="px-8 py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 cursor-pointer">
                 Subscribe
               </button>
             </form>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   )
 }

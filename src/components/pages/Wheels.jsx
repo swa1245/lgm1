@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useCart } from '../../context/CartContext';
 import { Link } from 'react-router-dom'
 import blackMagic100_1 from '../../assets/Inline Wheels/100mm Black Magic XF/1000211270.png'
 import blackMagic100_2 from '../../assets/Inline Wheels/100mm Black Magic XF/1000212161.png'
@@ -8,7 +9,8 @@ import voodoo110_1 from '../../assets/Inline Wheels/110 mm Voodoo Pro M Tech XF/
 import blueMagic110_1 from '../../assets/Inline Wheels/110mm Blue Magic Turbo XF - XXF/1000211259.png'
 
 const Wheels = () => {
-  const [view, setView] = useState('grid') // grid, list
+  const [view, setView] = useState('grid');
+  const { addToCart } = useCart() // grid, list
 
   const wheels = [
     {
@@ -162,11 +164,14 @@ const Wheels = () => {
                       <span className="text-sm text-gray-500">Price</span>
                       <span className="text-2xl font-heading font-bold text-gray-900">₹{wheel.price.toLocaleString()}</span>
                     </div>
-                    <button className="px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-blue-600 transform hover:scale-105 transition-all duration-300 flex items-center space-x-2 whitespace-nowrap">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    <button 
+                      onClick={() => addToCart(wheel)}
+                      className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2 cursor-pointer"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
                       </svg>
-                      <span>Add to Cart</span>
+                      Add to Cart
                     </button>
                   </div>
                 </div>

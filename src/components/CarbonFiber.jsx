@@ -7,8 +7,8 @@ const CarbonFiber = () => {
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 opacity-90"></div>
       
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div className="  px-10 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center justify-end">
           {/* Left side - Text content */}
           <div className="space-y-8">
             <div className="space-y-4">
@@ -31,11 +31,11 @@ const CarbonFiber = () => {
           </div>
 
           {/* Right side - Image with background */}
-          <div className="relative group">
+          <div className="relative group mx-10 px-10 mr-0">
             {/* Animated circles */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-[120%] h-[120%] rounded-full border-2 border-sky-600 opacity-70 animate-spin-slow"></div>
-              <div className="absolute w-[100%] h-[100%] rounded-full border-2 border-orange-500 opacity-80 animate-spin-slower"></div>
+              <div className="w-[80%] h-[80%] rounded-full border-2 border-sky-600 opacity-70 animate-spin-slow"></div>
+              <div className="absolute w-[70%] h-[70%] rounded-full border-2 border-orange-500 opacity-80 animate-spin-slower"></div>
             </div>
             
             <div className="aspect-square relative">

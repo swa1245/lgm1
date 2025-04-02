@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { useCart } from '../../context/CartContext';
 import { Link } from 'react-router-dom'
 import SubNav from '../SubNav'
 import wheels from '../../assets/inline/banner/w.png'
@@ -6,6 +7,7 @@ import boots from '../../assets/Quad Shoes/Classic Quad Shoes/1000210301 (1).png
 import frames from '../../assets/inline/banner/f.png'
 import bg from '../../assets/roller/bg2.webp'
 const RollerSkates = () => {
+  const { addToCart } = useCart();
   return (
     <div className="min-h-screen bg-white">
       <SubNav />
@@ -182,7 +184,16 @@ const RollerSkates = () => {
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-1">Complete Quad Set</h3>
               <p className="text-gray-500 text-sm mb-4">Professional complete setup</p>
-              <button className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
+              <button 
+                onClick={() => addToCart({
+                  id: 'quad-set-1',
+                  name: 'Complete Quad Set',
+                  description: 'Professional complete setup',
+                  price: 14999,
+                  image: '/images/skates/quad-set.jpg'
+                })}
+                className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10 cursor-pointer"
+              >
                 Add to Cart
               </button>
             </div>
