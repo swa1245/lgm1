@@ -9,7 +9,7 @@ const Navbar = () => {
   const cartItemsCount = getCartItemCount();
 
   return (
-    <nav className="bg-orange-500 text-white sticky top-0 z-50">
+    <nav className="bg-blue-600 text-white sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -18,18 +18,18 @@ const Navbar = () => {
               <img 
                 src={logo} 
                 alt="LGM Sports Logo" 
-                className="h-12"
+                className="h-20"
               />
             </Link>
           </div>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-white hover:text-blue-100 font-medium transition-colors">Home</Link>
-            <Link to="/inline-skates" className="text-white hover:text-blue-100 font-medium transition-colors">Inline Skates</Link>
-            <Link to="/roller-skates" className="text-white hover:text-blue-100 font-medium transition-colors">Roller Skates</Link>
-            <Link to="/baby-tenacity-skates" className="text-white hover:text-blue-100 font-medium transition-colors">Baby & Tenacity</Link>
-            <Link to="/accessories" className="text-white hover:text-blue-100 font-medium transition-colors">Accessories</Link>
+          <div className="hidden md:flex  items-center space-x-8">
+            <Link to="/" className="text-white hover:text-black font-medium transition-colors">Home</Link>
+            <Link to="/inline-skates" className="text-white hover:text-black font-medium transition-colors">Inline Skates</Link>
+            <Link to="/roller-skates" className="text-white hover:text-black font-medium transition-colors">Roller Skates</Link>
+            <Link to="/baby-tenacity-skates" className="text-white hover:text-black font-medium transition-colors">Baby & Tenacity</Link>
+            <Link to="/accessories" className="text-white hover:text-black font-medium transition-colors">Accessories</Link>
           </div>
 
           {/* Search and Cart */}

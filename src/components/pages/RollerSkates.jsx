@@ -157,9 +157,9 @@ const RollerSkates = () => {
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-1">Pro Quad Frames</h3>
               <p className="text-gray-500 text-sm mb-4">Competition-grade frames</p>
-              <Link to="/frames" className="block">
+              <Link to="/speed-frames" className="block">
                 <button className="w-full bg-gray-900 text-white py-3 cursor-pointer rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
-                  Coming Soon
+                  Shop Now
                 </button>
               </Link>
             </div>
@@ -194,7 +194,7 @@ const RollerSkates = () => {
                 })}
                 className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10 cursor-pointer"
               >
-                Add to Cart
+                Shop Now
               </button>
             </div>
           </div>

@@ -71,14 +71,14 @@ const SubNav = () => {
   ]
 
   return (
-    <div className="bg-orange-500 text-white border-b border-orange-600 sticky top-0 z-50">
+    <div className="bg-blue-600 text-white border-b border-orange-600 sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3">
         <div className="flex flex-wrap items-center justify-center gap-4">
           {categories.map((category) => (
             <Link
               key={category.id}
               to={category.path}
-              className="text-white hover:bg-blue-600 px-3 py-1 rounded transition-colors duration-300 text-sm font-medium cursor-pointer"
+              className="text-white hover:bg-orange-600 px-3 py-1 rounded transition-colors duration-300 text-sm font-medium cursor-pointer"
             >
               {category.name}
             </Link>

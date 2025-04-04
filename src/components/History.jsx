@@ -5,7 +5,7 @@ import logo from '../assets/logo/lo.jpg'
 const History = () => {
   return (
     <section className="bg-white py-16">
-      <div className="container mx-auto px-4">
+      <div className="px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left side - Text content */}
           <div className="space-y-6">
@@ -32,7 +32,7 @@ const History = () => {
           </div>
 
           {/* Right side - Image */}
-          <div className="relative group">
+          <div className="relative group mx-10 px-10 ml-0 h-[60vh]">
             <div className="rounded-[40%] overflow-hidden aspect-square bg-gradient-to-br from-sky-400/10 to-orange-500/10 p-1">
               <img
                 src={historyImage}
