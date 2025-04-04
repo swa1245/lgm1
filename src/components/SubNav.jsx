@@ -71,7 +71,7 @@ const SubNav = () => {
   ]
 
   return (
-    <div className="bg-blue-600 text-white border-b border-orange-600 sticky top-0 z-50">
+    <div className="bg-blue-600 text-white border-b border-orange-600 top-0 z-50">
       <div className="container mx-auto px-4 py-3">
         <div className="flex flex-wrap items-center justify-center gap-4">
           {categories.map((category) => (
