@@ -40,14 +40,14 @@ const RollerSkates = () => {
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex items-center gap-4">
+              {/* <div className="flex items-center gap-4">
                 <button className="px-8 py-4 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
                   Shop Collection
                 </button>
                 <button className="px-8 py-4 bg-white text-gray-900 rounded-lg font-medium hover:bg-gray-50 transition-all duration-300 shadow-lg">
                   Learn More
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -110,7 +110,7 @@ const RollerSkates = () => {
               <h3 className="text-lg font-semibold text-gray-900 mb-1">Pro Quad Shoes</h3>
               <p className="text-gray-500 text-sm mb-4">Professional quad skating boots</p>
               <Link to="/boots" className="block">
-                <button className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
+                <button className="w-full bg-gray-900 cursor-pointer text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
                   Shop Now
                 </button>
               </Link>
@@ -134,7 +134,7 @@ const RollerSkates = () => {
               <h3 className="text-lg font-semibold text-gray-900 mb-1">Elite Quad Wheels</h3>
               <p className="text-gray-500 text-sm mb-4">High-performance quad wheels</p>
               <Link to="/quad-wheels" className="block">
-                <button className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
+                <button className="w-full bg-gray-900 cursor-pointer text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
                   Shop Now
                 </button>
               </Link>
@@ -158,7 +158,7 @@ const RollerSkates = () => {
               <h3 className="text-lg font-semibold text-gray-900 mb-1">Pro Quad Frames</h3>
               <p className="text-gray-500 text-sm mb-4">Competition-grade frames</p>
               <Link to="/frames" className="block">
-                <button className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
+                <button className="w-full bg-gray-900 text-white py-3 cursor-pointer rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
                   Coming Soon
                 </button>
               </Link>

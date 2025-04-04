@@ -98,7 +98,7 @@ const InlineSkates = () => {
                 </div>
                 <button 
                   onClick={() => handleAddToCart(products[0])}
-                  className="px-8 py-4 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center gap-2 cursor-pointer"
+                  className="px-8 py-4 cursor-pointer bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center gap-2 cursor-pointer"
                 >
                   Add to Cart
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
