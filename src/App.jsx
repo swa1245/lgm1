@@ -28,6 +28,7 @@ import ShoesFrame from './components/pages/ShoesFrame'
 import SkinSuits from './components/pages/SkinSuits'
 import Bearings from './components/pages/Bearings'
 import CartPage from './components/pages/CartPage'
+import SearchResults from './components/pages/SearchResults'
 
 const App = () => {
   return (
@@ -46,6 +47,7 @@ const App = () => {
               </>
             } />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/search" element={<SearchResults />} />
             <Route path="/inline-skates" element={<InlineSkates />} />
             <Route path="/wheels" element={<Wheels />} />
             <Route path="/boots" element={<Boots />} />

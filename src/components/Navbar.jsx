@@ -11,6 +11,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchFocused, setSearchFocused] = useState(false);
 
   // Handle scroll effect
   useEffect(() => {
@@ -37,6 +38,7 @@ const Navbar = () => {
     if (searchQuery.trim()) {
       navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
       setSearchQuery('');
+      setSearchFocused(false);
     }
   };
 
@@ -108,26 +110,36 @@ const Navbar = () => {
           {/* Desktop Search and Cart */}
           <div className="hidden md:flex items-center space-x-4">
             <form onSubmit={handleSearch} className="relative">
-              <input 
-                type="text" 
-                placeholder="Search..." 
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className={`w-40 lg:w-56 px-4 py-2 rounded-full ${
-                  scrolled 
-                    ? 'bg-gray-100 text-gray-800 placeholder-gray-500 focus:ring-blue-500' 
-                    : 'bg-white bg-opacity-20 text-white placeholder-white placeholder-opacity-75 focus:ring-white'
-                } focus:outline-none focus:ring-2 focus:ring-opacity-50 transition-all`}
-              />
-              <button 
-                type="submit" 
-                className="absolute right-3 top-1/2 transform -translate-y-1/2"
-                aria-label="Search"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </button>
+              <div className={`flex items-center transition-all duration-300 ${
+                searchFocused ? 'w-64 lg:w-72' : 'w-40 lg:w-56'
+              }`}>
+                <input 
+                  type="text" 
+                  placeholder="Search products..." 
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onFocus={() => setSearchFocused(true)}
+                  onBlur={() => setSearchFocused(false)}
+                  className={`w-full px-4 py-2 pr-10 rounded-full ${
+                    scrolled 
+                      ? 'bg-gray-100 text-gray-800 placeholder-gray-500 focus:bg-white focus:shadow-md' 
+                      : 'bg-white bg-opacity-20 text-white placeholder-white placeholder-opacity-75 focus:bg-opacity-30'
+                  } focus:outline-none focus:ring-2 ${
+                    scrolled ? 'focus:ring-blue-500' : 'focus:ring-white'
+                  } focus:ring-opacity-50 transition-all`}
+                />
+                <button 
+                  type="submit" 
+                  className={`absolute right-3 top-1/2 transform -translate-y-1/2 ${
+                    searchQuery ? 'text-blue-500' : scrolled ? 'text-gray-500' : 'text-white'
+                  } hover:scale-110 transition-all duration-200`}
+                  aria-label="Search"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </button>
+              </div>
             </form>
 
             {/* Cart Icon */}
@@ -165,26 +177,32 @@ const Navbar = () => {
           <MobileNavLink to="/accessories" scrolled={scrolled}>Accessories</MobileNavLink> */}
           
           <form onSubmit={handleSearch} className="relative mt-4">
-            <input 
-              type="text" 
-              placeholder="Search..." 
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className={`w-full px-4 py-2 rounded-full ${
-                scrolled 
-                  ? 'bg-gray-100 text-gray-800 placeholder-gray-500 focus:ring-blue-500' 
-                  : 'bg-white bg-opacity-20 text-white placeholder-white placeholder-opacity-75 focus:ring-white'
-              } focus:outline-none focus:ring-2 focus:ring-opacity-50 transition-all`}
-            />
-            <button 
-              type="submit" 
-              className="absolute right-3 top-1/2 transform -translate-y-1/2"
-              aria-label="Search"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </button>
+            <div className="flex items-center">
+              <input 
+                type="text" 
+                placeholder="Search products..." 
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className={`w-full px-4 py-3 pr-10 rounded-full ${
+                  scrolled 
+                    ? 'bg-gray-100 text-gray-800 placeholder-gray-500 focus:bg-white focus:shadow-md' 
+                    : 'bg-white bg-opacity-20 text-white placeholder-white placeholder-opacity-75 focus:bg-opacity-30'
+                } focus:outline-none focus:ring-2 ${
+                  scrolled ? 'focus:ring-blue-500' : 'focus:ring-white'
+                } focus:ring-opacity-50 transition-all`}
+              />
+              <button 
+                type="submit" 
+                className={`absolute right-3 top-1/2 transform -translate-y-1/2 ${
+                  searchQuery ? 'text-blue-500' : scrolled ? 'text-gray-500' : 'text-white'
+                } active:scale-90 transition-all duration-200`}
+                aria-label="Search"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </button>
+            </div>
           </form>
         </div>
       </div>
@@ -199,14 +217,14 @@ const NavLink = ({ to, children, scrolled }) => {
   
   return (
     <Link 
-      to={to} 
+      to={to}
       className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
         isActive 
           ? scrolled 
             ? 'bg-blue-100 text-blue-700' 
             : 'bg-blue-700 text-white' 
           : scrolled 
-            ? 'text-gray-700 hover:bg-blue-50 hover:text-blue-600' 
+            ? 'text-gray-700 hover:bg-gray-100' 
             : 'text-white hover:bg-blue-700'
       }`}
     >
@@ -222,15 +240,15 @@ const MobileNavLink = ({ to, children, scrolled }) => {
   
   return (
     <Link 
-      to={to} 
-      className={`block px-3 py-2 rounded-md text-base font-medium ${
+      to={to}
+      className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
         isActive 
           ? scrolled 
             ? 'bg-blue-100 text-blue-700' 
             : 'bg-blue-700 text-white' 
           : scrolled 
-            ? 'text-gray-700 hover:bg-blue-50 hover:text-blue-600' 
-            : 'text-white hover:bg-blue-800'
+            ? 'text-gray-700 hover:bg-gray-100' 
+            : 'text-white hover:bg-blue-700'
       }`}
     >
       {children}
