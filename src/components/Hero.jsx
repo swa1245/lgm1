@@ -7,7 +7,7 @@ const Hero = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-[80vh] overflow-hidden">
+    <div className="grid grid-cols-1 mt-1 md:grid-cols-2 gap-4 h-[80vh] overflow-hidden">
       {/* Inline Skates Section */}
       <div 
         className="relative h-full group cursor-pointer overflow-hidden transition-transform duration-500 hover:translate-x-4 hover:z-10 peer"

@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useCart } from '../../context/CartContext';
 import { Link } from 'react-router-dom'
 import SubNav from '../SubNav'
+import ScrollToTop from '../ScrollToTop'
 import wheels from '../../assets/inline/banner/w.png'
 import boots from '../../assets/Quad Shoes/Classic Quad Shoes/1000210301 (1).png'
 import frames from '../../assets/inline/banner/f.png'
 import bg from '../../assets/roller/bg2.webp'
 const RollerSkates = () => {
   const { addToCart } = useCart();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-orange-200 from-10% via-blue-200 via-50% to-white to-90%">
+      <ScrollToTop />
       <SubNav />
       {/* Hero Section */}
       <section className="relative overflow-hidden py-12 md:py-20">
@@ -24,21 +30,63 @@ const RollerSkates = () => {
               <div className="space-y-6 md:space-y-10">
                 {/* Premium Badge */}
                 <div className="inline-flex items-center">
-                  <div className="px-4 py-2 bg-white rounded-lg shadow-md border border-gray-100">
-                    <span className="text-gray-600 font-medium tracking-wide text-sm uppercase">New Collection 2025</span>
+                  <div className="px-4 py-2 bg-white/90 backdrop-blur rounded-lg shadow-xl border border-gray-100">
+                    <span className="text-gray-900 font-medium tracking-wide text-sm uppercase">New Collection 2025</span>
                   </div>
                 </div>
 
-                {/* Title */}
-                <h1 className="text-4xl sm:text-5xl font-heading font-bold text-gray-900 leading-tight">
-                  Professional <br />
-                  <span className="text-blue-600">Quad Roller Skates</span>
-                </h1>
-
-                {/* Description */}
-                <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-lg">
-                  Experience the perfect blend of style and performance with our professional quad roller skates. Designed for both beginners and advanced skaters.
-                </p>
+                {/* Main Heading */}
+                <div>
+                  <h1 className="text-4xl sm:text-5xl md:text-[4.5rem] leading-none font-bold">
+                    Professional<br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">
+                      Quad Roller Skates
+                    </span>
+                  </h1>
+                  <p className="mt-4 md:mt-6 text-base md:text-lg text-gray-700 max-w-xl leading-relaxed">
+                    Experience the perfect blend of style and performance with our professional quad roller skates. Designed for both beginners and advanced skaters.
+                  </p>
+                </div>
+                
+                {/* Price and CTA */}
+                <div className="flex flex-wrap items-center gap-4 md:gap-8">
+                  <div className="space-y-1">
+                    <div className="text-2xl md:text-3xl font-bold text-gray-900">₹5,999</div>
+                    <div className="text-xs md:text-sm text-blue-600 font-medium">Limited time offer</div>
+                  </div>
+                  <button 
+                    onClick={() => addToCart({
+                      id: 'quad-set-1',
+                      name: 'Complete Quad Set',
+                      description: 'Professional complete setup',
+                      price: 5999,
+                      image: bg,
+                      category: 'roller-skates'
+                    })}
+                    className="px-6 md:px-8 py-3 md:py-4 cursor-pointer bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center gap-2"
+                  >
+                    Add to Cart
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </button>
+                </div>
+                
+                {/* Product Features */}
+                <div className="grid grid-cols-3 gap-4 md:gap-8 pt-6 md:pt-10 border-t border-gray-100">
+                  <div className="group">
+                    <div className="text-xl md:text-2xl font-semibold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Premium</div>
+                    <div className="text-sm md:text-base text-gray-500">Materials</div>
+                  </div>
+                  <div className="group">
+                    <div className="text-xl md:text-2xl font-semibold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">2 Years</div>
+                    <div className="text-sm md:text-base text-gray-500">Warranty</div>
+                  </div>
+                  <div className="group">
+                    <div className="text-xl md:text-2xl font-semibold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Global</div>
+                    <div className="text-sm md:text-base text-gray-500">Shipping</div>
+                  </div>
+                </div>
 
                 {/* CTA Buttons */}
                 {/* <div className="flex items-center gap-4">
@@ -52,14 +100,17 @@ const RollerSkates = () => {
               </div>
             </div>
 
-            {/* Right Content - Image */}
-            <div className="w-full lg:w-1/2 mb-8 lg:mb-0 order-1 lg:order-2">
-              <div className="relative px-4">
-                <img 
-                  src={bg} 
-                  alt="Professional Quad Skates"
-                  className="w-full h-auto object-contain transform hover:scale-105 transition-transform duration-500"
-                />
+            {/* Right Image */}
+            <div className="w-full lg:w-1/2 relative mb-8 lg:mb-0 order-1 lg:order-2">
+              <div className="relative group px-4">
+                <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/10 to-orange-500/10 rounded-3xl blur-2xl group-hover:from-blue-600/20 group-hover:to-orange-500/20 transition-all duration-500"></div>
+                <div className="relative">
+                  <img 
+                    src={bg} 
+                    alt="Professional Quad Skates"
+                    className="w-full lg:w-[120%] h-auto transform lg:-rotate-12 group-hover:rotate-0 transition-all duration-700"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -75,30 +126,15 @@ const RollerSkates = () => {
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 md:mb-4">Featured Products</h2>
               <p className="text-gray-500 text-sm md:text-base">Discover our premium collection of quad skating equipment</p>
             </div>
-            <div className="flex items-center gap-4 mt-4 md:mt-0">
-              <button className="p-2 rounded-lg border border-gray-200 hover:border-gray-300 transition-colors">
-                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <button className="p-2 rounded-lg border border-gray-200 hover:border-gray-300 transition-colors">
-                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
           </div>
 
           {/* Products Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {/* Quad Shoes */}
-            <div className="group">
-              <div className="relative bg-white rounded-xl overflow-hidden mb-4 shadow-lg shadow-gray-100/50">
-                <div className="absolute top-4 left-4 z-10">
-                  <div className="px-3 py-1 bg-blue-600 text-white text-xs md:text-sm font-medium rounded-full">New</div>
-                </div>
+            <div className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div className="relative">
                 <div className="absolute top-4 right-4 z-10">
-                  <div className="px-3 py-1 bg-white shadow-lg text-gray-900 text-xs md:text-sm font-medium rounded-full">₹2,999</div>
+                  <div className="px-3 py-1 bg-white shadow-lg text-gray-900 font-medium rounded-full text-sm">₹2,999</div>
                 </div>
                 <div className="p-4 md:p-6">
                   <img 
@@ -107,22 +143,27 @@ const RollerSkates = () => {
                     className="w-full h-48 md:h-64 object-contain transform group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1">Pro Quad Shoes</h3>
-              <p className="text-xs md:text-sm text-gray-500 mb-4">Professional quad skating boots</p>
-              <Link to="/boots" className="block">
-                <button className="w-full bg-gray-900 cursor-pointer text-white py-2 md:py-3 rounded-lg text-sm md:text-base font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
-                  Shop Now
-                </button>
-              </Link>
+              <div className="p-4 md:p-6">
+                <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2">Pro Quad Shoes</h3>
+                <p className="text-gray-500 text-xs md:text-sm mb-4">Professional quad skating boots</p>
+                <Link 
+                  to="/boots"
+                  className="w-full bg-gray-900 text-white py-2 md:py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer text-sm md:text-base"
+                >
+                  <span>Shop Now</span>
+                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </Link>
+              </div>
             </div>
 
             {/* Quad Wheels */}
-            <div className="group">
-              <div className="relative bg-white rounded-xl overflow-hidden mb-4 shadow-lg shadow-gray-100/50">
+            <div className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div className="relative">
                 <div className="absolute top-4 right-4 z-10">
-                  <div className="px-3 py-1 bg-white shadow-lg text-gray-900 text-xs md:text-sm font-medium rounded-full">₹1,499</div>
+                  <div className="px-3 py-1 bg-white shadow-lg text-gray-900 font-medium rounded-full text-sm">₹1,499</div>
                 </div>
                 <div className="p-4 md:p-6">
                   <img 
@@ -131,22 +172,27 @@ const RollerSkates = () => {
                     className="w-full h-48 md:h-64 object-contain transform group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1">Elite Quad Wheels</h3>
-              <p className="text-xs md:text-sm text-gray-500 mb-4">High-performance quad wheels</p>
-              <Link to="/quad-wheels" className="block">
-                <button className="w-full bg-gray-900 cursor-pointer text-white py-2 md:py-3 rounded-lg text-sm md:text-base font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
-                  Shop Now
-                </button>
-              </Link>
+              <div className="p-4 md:p-6">
+                <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2">Elite Quad Wheels</h3>
+                <p className="text-gray-500 text-xs md:text-sm mb-4">High-performance quad wheels</p>
+                <Link 
+                  to="/quad-wheels"
+                  className="w-full bg-gray-900 text-white py-2 md:py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer text-sm md:text-base"
+                >
+                  <span>Shop Now</span>
+                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </Link>
+              </div>
             </div>
 
             {/* Quad Frames */}
-            <div className="group">
-              <div className="relative bg-white rounded-xl overflow-hidden mb-4 shadow-lg shadow-gray-100/50">
+            <div className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div className="relative">
                 <div className="absolute top-4 right-4 z-10">
-                  <div className="px-3 py-1 bg-white shadow-lg text-gray-900 text-xs md:text-sm font-medium rounded-full">₹1,999</div>
+                  <div className="px-3 py-1 bg-white shadow-lg text-gray-900 font-medium rounded-full text-sm">₹1,999</div>
                 </div>
                 <div className="p-4 md:p-6">
                   <img 
@@ -155,25 +201,27 @@ const RollerSkates = () => {
                     className="w-full h-48 md:h-64 object-contain transform group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1">Pro Quad Frames</h3>
-              <p className="text-xs md:text-sm text-gray-500 mb-4">Competition-grade frames</p>
-              <Link to="/speed-frames" className="block">
-                <button className="w-full bg-gray-900 text-white py-2 md:py-3 cursor-pointer rounded-lg text-sm md:text-base font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10">
-                  Shop Now
-                </button>
-              </Link>
+              <div className="p-4 md:p-6">
+                <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2">Pro Quad Frames</h3>
+                <p className="text-gray-500 text-xs md:text-sm mb-4">Competition-grade frames</p>
+                <Link 
+                  to="/speed-frames"
+                  className="w-full bg-gray-900 text-white py-2 md:py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer text-sm md:text-base"
+                >
+                  <span>Shop Now</span>
+                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </Link>
+              </div>
             </div>
 
             {/* Complete Set */}
-            <div className="group">
-              <div className="relative bg-white rounded-xl overflow-hidden mb-4 shadow-lg shadow-gray-100/50">
-                <div className="absolute top-4 left-4 z-10">
-                  <div className="px-3 py-1 bg-orange-500 text-white text-xs md:text-sm font-medium rounded-full">Best Value</div>
-                </div>
+            <div className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div className="relative">
                 <div className="absolute top-4 right-4 z-10">
-                  <div className="px-3 py-1 bg-white shadow-lg text-gray-900 text-xs md:text-sm font-medium rounded-full">₹5,999</div>
+                  <div className="px-3 py-1 bg-white shadow-lg text-gray-900 font-medium rounded-full text-sm">₹5,999</div>
                 </div>
                 <div className="p-4 md:p-6">
                   <img 
@@ -182,22 +230,27 @@ const RollerSkates = () => {
                     className="w-full h-48 md:h-64 object-contain transform group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1">Complete Quad Set</h3>
-              <p className="text-xs md:text-sm text-gray-500 mb-4">Professional complete setup</p>
-              <button 
-                onClick={() => addToCart({
-                  id: 'quad-set-1',
-                  name: 'Complete Quad Set',
-                  description: 'Professional complete setup',
-                  price: 14999,
-                  image: '/images/skates/quad-set.jpg'
-                })}
-                className="w-full bg-gray-900 text-white py-2 md:py-3 rounded-lg text-sm md:text-base font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-900/10 cursor-pointer"
-              >
-                Shop Now
-              </button>
+              <div className="p-4 md:p-6">
+                <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2">Complete Quad Set</h3>
+                <p className="text-gray-500 text-xs md:text-sm mb-4">Professional complete setup</p>
+                <button 
+                  onClick={() => addToCart({
+                    id: 'quad-set-1',
+                    name: 'Complete Quad Set',
+                    description: 'Professional complete setup',
+                    price: 5999,
+                    image: bg,
+                    category: 'roller-skates'
+                  })}
+                  className="w-full bg-gray-900 text-white py-2 md:py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer text-sm md:text-base"
+                >
+                  <span>Shop Now</span>
+                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         </div>

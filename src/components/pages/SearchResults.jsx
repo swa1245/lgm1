@@ -2,14 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 import SubNav from '../SubNav';
+import ScrollToTop from '../ScrollToTop';
 
-// Import product data
-import inlineSkatesData from '../../data/inlineSkates';
-import rollerSkatesData from '../../data/rollerSkates';
-import wheelsData from '../../data/wheels';
-import bootsData from '../../data/boots';
-import framesData from '../../data/frames';
-import accessoriesData from '../../data/accessories';
+// Import product data from pages
+import allPageProducts from '../../data/pageProducts';
 
 const SearchResults = () => {
   const location = useLocation();
@@ -20,28 +16,41 @@ const SearchResults = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  // Function to search across all product data
+  // Function to search across page products data
   useEffect(() => {
     setLoading(true);
-    
-    // Combine all product data
-    const allProducts = [
-      ...mapProducts(inlineSkatesData || [], 'Inline Skates', '/inline-skates'),
-      ...mapProducts(rollerSkatesData || [], 'Roller Skates', '/roller-skates'),
-      ...mapProducts(wheelsData || [], 'Wheels', '/wheels'),
-      ...mapProducts(bootsData || [], 'Boots', '/boots'),
-      ...mapProducts(framesData || [], 'Frames', '/frames'),
-      ...mapProducts(accessoriesData || [], 'Accessories', '/accessories')
-    ];
+    window.scrollTo(0, 0);
     
     // Filter products based on search query
-    const filteredResults = allProducts.filter(product => {
-      const searchLower = searchQuery.toLowerCase();
-      return (
-        product.name.toLowerCase().includes(searchLower) ||
-        product.description.toLowerCase().includes(searchLower) ||
-        product.category.toLowerCase().includes(searchLower)
-      );
+    const filteredResults = allPageProducts.filter(product => {
+      // If search query is empty, return all products
+      if (!searchQuery.trim()) return true;
+      
+      const searchLower = searchQuery.toLowerCase().trim();
+      const searchTerms = searchLower.split(/\s+/).filter(term => term.length > 0);
+      
+      // For very short searches (3 letters or less), we'll be more lenient
+      const isShortSearch = searchLower.length <= 3;
+      
+      // Check if any search term matches any product field
+      return searchTerms.some(term => {
+        // For short searches, we'll check if any field starts with the term
+        if (isShortSearch) {
+          return (
+            product.name.toLowerCase().split(/\s+/).some(word => word.startsWith(term)) ||
+            product.category.toLowerCase().split(/\s+/).some(word => word.startsWith(term)) ||
+            (product.keywords && product.keywords.toLowerCase().split(/\s+/).some(word => word.startsWith(term)))
+          );
+        }
+        
+        // For longer searches, we'll check if any field includes the term
+        return (
+          product.name.toLowerCase().includes(term) ||
+          product.description.toLowerCase().includes(term) ||
+          product.category.toLowerCase().includes(term) ||
+          (product.keywords && product.keywords.toLowerCase().includes(term))
+        );
+      });
     });
     
     // Extract unique categories
@@ -52,14 +61,7 @@ const SearchResults = () => {
     setLoading(false);
   }, [searchQuery]);
 
-  // Helper function to map product data to a consistent format
-  function mapProducts(products, category, categoryPath) {
-    return products.map(product => ({
-      ...product,
-      category,
-      categoryPath
-    }));
-  }
+
 
   // Filter results by selected category
   const filteredResults = selectedCategory === 'all' 
@@ -68,6 +70,7 @@ const SearchResults = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-100 from-10% via-blue-100 via-50% to-white to-90%">
+      <ScrollToTop />
       <SubNav />
       <div className="container mx-auto px-4 py-8 md:py-12">
         <div className="max-w-6xl mx-auto">
@@ -150,7 +153,7 @@ const SearchResults = () => {
                     />
                     <div className="absolute top-2 left-2">
                       <Link 
-                        to={product.categoryPath}
+                        to={product.pageUrl}
                         className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-full hover:bg-blue-200 transition-colors"
                       >
                         {product.category}
@@ -168,7 +171,7 @@ const SearchResults = () => {
                         Add to Cart
                       </button>
                       <Link
-                        to={`${product.categoryPath}?product=${product.id}`}
+                        to={product.pageUrl}
                         className="flex-1 bg-gray-100 text-gray-800 py-2 rounded-lg text-sm font-medium text-center hover:bg-gray-200 transition-colors"
                       >
                         View Details

@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useCart } from '../../context/CartContext';
 import { Link } from 'react-router-dom'
 import SubNav from '../SubNav'
+import ScrollToTop from '../ScrollToTop'
 import wheels from '../../assets/Quad Wheels/Rubber wheel/Photo from Rucha Lembhe.jpg'
-import boats from '../../assets/BABY & TENACITY SKATE (Acessories)/Baby skate full kit/_MG_2054.jpg'
-import frames from '../../assets/technology/speed-frames.jpg'
-import bg from '../../assets/inline/banner/bg.webp'
-
+// import boats from '../../assets/BABY & TENACITY SKATE (Acessories)/Baby skate full kit/_MG_2054.jpg'
+import boats from '../../assets/Quad Shoes/Super Quad Shoes/1000210421.png'
+import frames from '../../assets/Quad Frame/Aluminium Quad Frame/1000210632.png'
+// import bg from '../../assets/inline/banner/bg.webp'
+import bg from '../../assets/banner/c2.png'
 const InlineSkates = () => {
   const { addToCart } = useCart();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const products = [
     {
@@ -58,6 +64,7 @@ const InlineSkates = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-200 from-10% via-blue-200 via-50% to-white to-90%">
+      <ScrollToTop />
       <SubNav />
       {/* Hero Section */}
       <section className="relative overflow-hidden py-12 md:py-20">
@@ -97,7 +104,7 @@ const InlineSkates = () => {
                     <div className="text-2xl md:text-3xl font-bold text-gray-900">₹4,999</div>
                     <div className="text-xs md:text-sm text-blue-600 font-medium">Limited time offer</div>
                   </div>
-                  <button 
+                  {/* <button 
                     onClick={() => handleAddToCart(products[0])}
                     className="px-6 md:px-8 py-3 md:py-4 cursor-pointer bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center gap-2"
                   >
@@ -105,7 +112,7 @@ const InlineSkates = () => {
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
-                  </button>
+                  </button> */}
                 </div>
 
                 {/* Product Features */}
@@ -134,7 +141,7 @@ const InlineSkates = () => {
                   <img 
                     src={bg} 
                     alt="Pro Series Inline Skates"
-                    className="w-full lg:w-[120%] h-auto transform lg:-rotate-12 group-hover:rotate-0 transition-all duration-700"
+                    className="w-full lg:w-[120%] h-[180%] transform lg:-rotate-0 -scale-x-100 group-hover:rotate-0 group-hover:-scale-x-100 transition-all duration-700"
                   />
                 </div>
               </div>

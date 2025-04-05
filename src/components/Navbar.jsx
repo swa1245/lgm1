@@ -123,7 +123,7 @@ const Navbar = () => {
                   className={`w-full px-4 py-2 pr-10 rounded-full ${
                     scrolled 
                       ? 'bg-gray-100 text-gray-800 placeholder-gray-500 focus:bg-white focus:shadow-md' 
-                      : 'bg-white bg-opacity-20 text-white placeholder-white placeholder-opacity-75 focus:bg-opacity-30'
+                      : 'bg-white bg-opacity-20 text-gray-900 placeholder-gray-700 focus:bg-opacity-90'
                   } focus:outline-none focus:ring-2 ${
                     scrolled ? 'focus:ring-blue-500' : 'focus:ring-white'
                   } focus:ring-opacity-50 transition-all`}
@@ -186,7 +186,7 @@ const Navbar = () => {
                 className={`w-full px-4 py-3 pr-10 rounded-full ${
                   scrolled 
                     ? 'bg-gray-100 text-gray-800 placeholder-gray-500 focus:bg-white focus:shadow-md' 
-                    : 'bg-white bg-opacity-20 text-white placeholder-white placeholder-opacity-75 focus:bg-opacity-30'
+                    : 'bg-white bg-opacity-20 text-gray-900 placeholder-gray-700 focus:bg-opacity-90'
                 } focus:outline-none focus:ring-2 ${
                   scrolled ? 'focus:ring-blue-500' : 'focus:ring-white'
                 } focus:ring-opacity-50 transition-all`}

@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useCart } from '../../context/CartContext'
 import SubNav from '../SubNav'
+import ScrollToTop from '../ScrollToTop'
 import framesBanner from '../../assets/technology/speed-frames.jpg'
 
 const Frames = () => {
   const { addToCart } = useCart();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   
   const frames = [
     {
@@ -38,6 +43,7 @@ const Frames = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <ScrollToTop />
       <SubNav />
       
       {/* Hero Section */}
