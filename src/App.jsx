@@ -31,12 +31,15 @@ import CartPage from './components/pages/CartPage'
 import SearchResults from './components/pages/SearchResults'
 import Footer from './components/Footer'
 import ProSeriesX1 from './components/pages/ProSeriesX1'
+import { FaWhatsapp } from 'react-icons/fa';
 
 const App = () => {
+  const randomPhoneNumber = `+91${Math.floor(Math.random() * 9000000000) + 1000000000}`;
+
   return (
     <CartProvider>
       <Router>
-        <div className="min-h-screen">
+        <div className="min-h-screen relative">
           <Navbar />
           <Routes>
             <Route path="/" element={
@@ -82,6 +85,17 @@ const App = () => {
             draggable
             pauseOnHover
           />
+          <div className="fixed bottom-6 right-16 bg-white text-gray-600 text-sm p-2 rounded-lg shadow-lg animate-bounce">
+            Any queries? Contact us!
+          </div>
+          <a 
+            href={`https://wa.me/${randomPhoneNumber}`} 
+            className="fixed bottom-4 right-4 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 animate-bounce"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaWhatsapp size={24} />
+          </a>
         </div>
       </Router>
     </CartProvider>
