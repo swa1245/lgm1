@@ -29,6 +29,7 @@ import SkinSuits from './components/pages/SkinSuits'
 import Bearings from './components/pages/Bearings'
 import CartPage from './components/pages/CartPage'
 import SearchResults from './components/pages/SearchResults'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -67,9 +68,7 @@ const App = () => {
             <Route path="/accessories" element={<Accessories />} />
             <Route path="/speed-frames" element={<SpeedFrames />} />
           </Routes>
-          <footer className="bg-white text-gray-900 py-8 text-center">
-            <p>Copyright 2025 LGM Sports Online India</p>
-          </footer>
+          <Footer />
           <ToastContainer 
             position="top-right"
             autoClose={3000}

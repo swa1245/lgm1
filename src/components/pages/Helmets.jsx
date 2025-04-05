@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useCart } from '../../context/CartContext';
 import SubNav from '../SubNav'
+import Footer from '../Footer';
 
 // Import LGM Helmet images
 import lgmHelmet1 from '../../assets/Helmet/LGM Helmet/1000211213.png'

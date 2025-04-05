@@ -108,7 +108,7 @@ const RollerSkates = () => {
                   <img 
                     src={bg} 
                     alt="Professional Quad Skates"
-                    className="w-full lg:w-[120%] h-auto transform lg:-rotate-12 group-hover:rotate-0 transition-all duration-700"
+                    className="w-full lg:w-[120%] h-auto transfor group-hover:rotate-0 transition-all duration-700"
                   />
                 </div>
               </div>
@@ -218,7 +218,7 @@ const RollerSkates = () => {
             </div>
 
             {/* Complete Set */}
-            <div className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            {/* <div className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
               <div className="relative">
                 <div className="absolute top-4 right-4 z-10">
                   <div className="px-3 py-1 bg-white shadow-lg text-gray-900 font-medium rounded-full text-sm">₹5,999</div>
@@ -230,8 +230,8 @@ const RollerSkates = () => {
                     className="w-full h-48 md:h-64 object-contain transform group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-              </div>
-              <div className="p-4 md:p-6">
+              </div> */}
+              {/* <div className="p-4 md:p-6">
                 <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2">Complete Quad Set</h3>
                 <p className="text-gray-500 text-xs md:text-sm mb-4">Professional complete setup</p>
                 <button 
@@ -250,8 +250,8 @@ const RollerSkates = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </button>
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
           </div>
         </div>
       </section>

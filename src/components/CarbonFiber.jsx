@@ -1,5 +1,6 @@
 import React from 'react'
 import carbonFiber from '../assets/banner/carbon.jpg'
+import Footer from './Footer';
 
 const CarbonFiber = () => {
   return (
@@ -98,6 +99,7 @@ const CarbonFiber = () => {
           </div>
         </div>
       </div>
+      {/* <Footer /> */}
     </section>
   )
 }

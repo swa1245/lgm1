@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useCart } from '../../context/CartContext';
 import ScrollToTop from '../ScrollToTop';
 import SubNav from '../SubNav';
+import Footer from '../Footer';
 
 // Import boot images from Quad Shoes folder
 // Classic Quad Shoes
@@ -303,6 +304,8 @@ const Boots = () => {
             </div>
           </div>
         </div>
+
+        
       </div>
     </div>
   );

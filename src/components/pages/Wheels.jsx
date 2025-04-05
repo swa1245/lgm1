@@ -1,71 +1,153 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useCart } from '../../context/CartContext';
-import { Link } from 'react-router-dom'
+import ScrollToTop from '../ScrollToTop';
+import SubNav from '../SubNav';
+
+// Import wheel images
+// 90mm Black Magic
+import blackMagic90_1 from '../../assets/Inline Wheels/90mm Black Magic XF/1000211267.png'
+import blackMagic90_2 from '../../assets/Inline Wheels/90mm Black Magic XF/1000211269.png'
+import blackMagic90_3 from '../../assets/Inline Wheels/90mm Black Magic XF/1000211270.png'
+
+// 100mm Black Magic
 import blackMagic100_1 from '../../assets/Inline Wheels/100mm Black Magic XF/1000211270.png'
 import blackMagic100_2 from '../../assets/Inline Wheels/100mm Black Magic XF/1000212161.png'
+import blackMagic100_3 from '../../assets/Inline Wheels/100mm Black Magic XF/1000212164.png'
+
+// 100mm Voodoo Pro
 import voodoo100_1 from '../../assets/Inline Wheels/100mm Voodoo Pro Tech XF/1000211261.png'
+import voodoo100_2 from '../../assets/Inline Wheels/100mm Voodoo Pro Tech XF/1000211262.png'
+import voodoo100_3 from '../../assets/Inline Wheels/100mm Voodoo Pro Tech XF/1000211263.png'
+
+// 110mm Track Assault
 import trackAssault110_1 from '../../assets/Inline Wheels/110 mm Track Assult XXF/1000211252.png'
-import voodoo110_1 from '../../assets/Inline Wheels/110 mm Voodoo Pro M Tech XF/1000211264.png'
+import trackAssault110_2 from '../../assets/Inline Wheels/110 mm Track Assult XXF/1000211253.png'
+import trackAssault110_3 from '../../assets/Inline Wheels/110 mm Track Assult XXF/1000211258.png'
+
+// 110mm Blue Magic
 import blueMagic110_1 from '../../assets/Inline Wheels/110mm Blue Magic Turbo XF - XXF/1000211259.png'
+import blueMagic110_2 from '../../assets/Inline Wheels/110mm Blue Magic Turbo XF - XXF/1000211260.png'
+import blueMagic110_3 from '../../assets/Inline Wheels/110mm Blue Magic Turbo XF - XXF/1000211266 (1).png'
 
 const Wheels = () => {
   const [view, setView] = useState('grid');
-  const { addToCart } = useCart() // grid, list
+  const { addToCart } = useCart();
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const wheels = [
     {
       id: 1,
       name: "90mm Black Magic XF",
-      image: blackMagic100_1,
+      images: [blackMagic90_1, blackMagic90_2, blackMagic90_3],
+      image: blackMagic90_1,
       price: 2499,
-      description: "Professional racing wheels with superior grip",
+      description: "Professional racing wheels with superior grip and durability",
       specs: {
         brand: "LGM",
-        usage: "Skating",
+        usage: "Speed Skating",
         quantity: "8 pcs",
-        size: "90mm"
+        size: "90mm",
+        hardness: "85A",
+        core: "Aluminum"
       }
     },
     {
       id: 2,
       name: "100mm Black Magic XF",
-      image: blackMagic100_2,
+      images: [blackMagic100_1, blackMagic100_2, blackMagic100_3],
+      image: blackMagic100_1,
       price: 2999,
-      description: "High-performance wheels for competitive skating",
+      description: "High-performance wheels for competitive skating with enhanced control",
       specs: {
         brand: "LGM",
-        usage: "Skating",
+        usage: "Racing",
         quantity: "8 pcs",
-        size: "100mm"
+        size: "100mm",
+        hardness: "86A",
+        core: "Aluminum"
       }
     },
     {
       id: 3,
-      name: "110mm Black Magic XF",
-      image: trackAssault110_1,
-      price: 3499,
-      description: "Premium racing wheels for maximum speed",
+      name: "100mm Voodoo Pro Tech XF",
+      images: [voodoo100_1, voodoo100_2, voodoo100_3],
+      image: voodoo100_1,
+      price: 3299,
+      description: "Premium racing wheels with Voodoo Pro technology for maximum performance",
       specs: {
         brand: "LGM",
-        usage: "Skating",
+        usage: "Professional Racing",
         quantity: "8 pcs",
-        size: "110mm"
+        size: "100mm",
+        hardness: "87A",
+        core: "Carbon Fiber"
       }
     },
     {
       id: 4,
-      name: "110mm Blue Magic Turbo XF-XXF",
-      image: blueMagic110_1,
-      price: 3999,
-      description: "Elite performance wheels with turbo core",
+      name: "110mm Track Assault XXF",
+      images: [trackAssault110_1, trackAssault110_2, trackAssault110_3],
+      image: trackAssault110_1,
+      price: 3499,
+      description: "Elite track wheels designed for maximum speed and minimal resistance",
       specs: {
         brand: "LGM",
-        usage: "Skating",
+        usage: "Track Racing",
         quantity: "8 pcs",
-        size: "110mm"
+        size: "110mm",
+        hardness: "88A",
+        core: "Aluminum"
+      }
+    },
+    {
+      id: 5,
+      name: "110mm Blue Magic Turbo XF-XXF",
+      images: [blueMagic110_1, blueMagic110_2, blueMagic110_3],
+      image: blueMagic110_1,
+      price: 3999,
+      description: "Premium performance wheels with Blue Magic technology for elite skaters",
+      specs: {
+        brand: "LGM",
+        usage: "Professional Racing",
+        quantity: "8 pcs",
+        size: "110mm",
+        hardness: "88A",
+        core: "Carbon Fiber"
       }
     }
-  ]
+  ];
+  
+  // Image modal functions
+  const openImageModal = (product, index = 0) => {
+    setSelectedProduct(product);
+    setCurrentImageIndex(index);
+  };
+
+  const closeImageModal = () => {
+    setSelectedProduct(null);
+    setCurrentImageIndex(0);
+  };
+
+  const nextImage = () => {
+    if (selectedProduct) {
+      setCurrentImageIndex((prev) => 
+        prev === selectedProduct.images.length - 1 ? 0 : prev + 1
+      );
+    }
+  };
+
+  const prevImage = () => {
+    if (selectedProduct) {
+      setCurrentImageIndex((prev) => 
+        prev === 0 ? selectedProduct.images.length - 1 : prev - 1
+      );
+    }
+  }
 
   return (
     <div className="min-h-screen bg-white font-body">

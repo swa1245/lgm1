@@ -3,6 +3,7 @@ import { useCart } from '../../context/CartContext';
 import { Link } from 'react-router-dom'
 import SubNav from '../SubNav'
 import ScrollToTop from '../ScrollToTop'
+import Footer from '../Footer';
 import wheels from '../../assets/Quad Wheels/Rubber wheel/Photo from Rucha Lembhe.jpg'
 // import boats from '../../assets/BABY & TENACITY SKATE (Acessories)/Baby skate full kit/_MG_2054.jpg'
 import boats from '../../assets/Quad Shoes/Super Quad Shoes/1000210421.png'
@@ -195,6 +196,45 @@ const InlineSkates = () => {
           </div>
         </div>
       </section>
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10">
+            {/* Feature 1 */}
+            <div className="text-center">
+              <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-4 md:mb-6 flex items-center justify-center bg-blue-100 text-blue-600 rounded-xl">
+                <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">Premium Quality</h3>
+              <p className="text-sm md:text-base text-gray-600">Built with the finest materials for durability and performance</p>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="text-center">
+              <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-4 md:mb-6 flex items-center justify-center bg-orange-100 text-orange-600 rounded-xl">
+                <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">Fast Shipping</h3>
+              <p className="text-sm md:text-base text-gray-600">Quick delivery to your doorstep with tracking</p>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="text-center sm:col-span-2 md:col-span-1 sm:max-w-md sm:mx-auto md:max-w-none">
+              <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-4 md:mb-6 flex items-center justify-center bg-green-100 text-green-600 rounded-xl">
+                <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+              </div>
+              <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">Warranty Protected</h3>
+              <p className="text-sm md:text-base text-gray-600">1-year warranty on all our products</p>
+            </div>
+          </div>
+        </div>
+      </section>
+     
     </div>
   );
 };
