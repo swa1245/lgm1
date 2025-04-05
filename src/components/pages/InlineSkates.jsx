@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useCart } from '../../context/CartContext';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import SubNav from '../SubNav'
 import ScrollToTop from '../ScrollToTop'
 import Footer from '../Footer';
+import { toast } from 'react-toastify';
 import wheels from '../../assets/Quad Wheels/Rubber wheel/Photo from Rucha Lembhe.jpg'
 // import boats from '../../assets/BABY & TENACITY SKATE (Acessories)/Baby skate full kit/_MG_2054.jpg'
 import boats from '../../assets/Quad Shoes/Super Quad Shoes/1000210421.png'
@@ -12,7 +13,8 @@ import frames from '../../assets/Quad Frame/Aluminium Quad Frame/1000210632.png'
 import bg from '../../assets/banner/c2.png'
 const InlineSkates = () => {
   const { addToCart } = useCart();
-  
+  const navigate = useNavigate();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -61,6 +63,7 @@ const InlineSkates = () => {
       image: product.image,
       category: product.category
     });
+    toast.success(`${product.name} added to cart!`);
   };
 
   return (
@@ -84,7 +87,7 @@ const InlineSkates = () => {
                     <span className="text-gray-900 font-medium tracking-wide text-sm uppercase">New Collection 2025</span>
                   </div>
                 </div>
-                
+
                 {/* Main Heading */}
                 <div>
                   <h1 className="text-4xl sm:text-5xl md:text-[4.5rem] leading-none font-bold">
@@ -94,7 +97,7 @@ const InlineSkates = () => {
                     </span>
                   </h1>
                   <p className="mt-4 md:mt-6 text-base md:text-lg text-gray-700 max-w-xl leading-relaxed">
-                    Experience unparalleled performance with our professional-grade inline skates. 
+                    Experience unparalleled performance with our professional-grade inline skates.
                     Crafted for speed, designed for champions.
                   </p>
                 </div>
@@ -139,8 +142,8 @@ const InlineSkates = () => {
               <div className="relative group px-4">
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/10 to-orange-500/10 rounded-3xl blur-2xl group-hover:from-blue-600/20 group-hover:to-orange-500/20 transition-all duration-500"></div>
                 <div className="relative">
-                  <img 
-                    src={bg} 
+                  <img
+                    src={bg}
                     alt="Pro Series Inline Skates"
                     className="w-full lg:w-[120%] h-[180%] transform lg:-rotate-0 -scale-x-100 group-hover:rotate-0 group-hover:-scale-x-100 transition-all duration-700"
                   />
@@ -171,7 +174,7 @@ const InlineSkates = () => {
                     <div className="px-3 py-1 bg-white shadow-lg text-gray-900 font-medium rounded-full text-sm">₹{product.price}</div>
                   </div>
                   <div className="p-4 md:p-6">
-                    <img 
+                    <img
                       src={product.image}
                       alt={product.name}
                       className="w-full h-48 md:h-64 object-contain transform group-hover:scale-110 transition-transform duration-500"
@@ -181,15 +184,28 @@ const InlineSkates = () => {
                 <div className="p-4 md:p-6">
                   <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2">{product.name}</h3>
                   <p className="text-gray-500 text-xs md:text-sm mb-4">{product.description}</p>
-                  <Link 
-                    to={`/${product.category}`}
-                    className="w-full bg-gray-900 text-white py-2 md:py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer text-sm md:text-base"
-                  >
-                    <span>Shop Now</span>
-                    <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </Link>
+                  {product.id === 'pro-series-x1' ? (
+                    <button
+                      className="w-full bg-gray-900 text-white py-2 md:py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer text-sm md:text-base"
+                      onClick={() => navigate('/pro-series-x1')}
+                    >
+
+                      Shop Now
+                      <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </button>
+                  ) : (
+                    <Link
+                      to={`/${product.category}`}
+                      className="w-full bg-gray-900 text-white py-2 md:py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer text-sm md:text-base"
+                    >
+                      <span>Shop Now</span>
+                      <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </Link>
+                  )}
                 </div>
               </div>
             ))}
@@ -203,7 +219,7 @@ const InlineSkates = () => {
             <div className="text-center">
               <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-4 md:mb-6 flex items-center justify-center bg-blue-100 text-blue-600 rounded-xl">
                 <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
               <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">Premium Quality</h3>
@@ -214,7 +230,7 @@ const InlineSkates = () => {
             <div className="text-center">
               <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-4 md:mb-6 flex items-center justify-center bg-orange-100 text-orange-600 rounded-xl">
                 <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
               <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">Fast Shipping</h3>
@@ -225,7 +241,7 @@ const InlineSkates = () => {
             <div className="text-center sm:col-span-2 md:col-span-1 sm:max-w-md sm:mx-auto md:max-w-none">
               <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-4 md:mb-6 flex items-center justify-center bg-green-100 text-green-600 rounded-xl">
                 <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
               <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">Warranty Protected</h3>
@@ -234,7 +250,7 @@ const InlineSkates = () => {
           </div>
         </div>
       </section>
-     
+
     </div>
   );
 };

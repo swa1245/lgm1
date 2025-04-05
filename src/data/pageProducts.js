@@ -1,7 +1,7 @@
 // This file collects products from all page components for search functionality
 
 // Import images for products that might not have them defined in their components
-import inlineBg from '../assets/inline/banner/bg.webp';
+import inlineBg from '../assets/banner/c2.png'
 import rollerBg from '../assets/roller/bg2.webp';
 import classicQuad1 from '../assets/Quad Shoes/Classic Quad Shoes/1000210301 (1).png';
 import superQuad1 from '../assets/Quad Shoes/Super Quad Shoes/1000210421.png';

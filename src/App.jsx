@@ -30,6 +30,7 @@ import Bearings from './components/pages/Bearings'
 import CartPage from './components/pages/CartPage'
 import SearchResults from './components/pages/SearchResults'
 import Footer from './components/Footer'
+import ProSeriesX1 from './components/pages/ProSeriesX1'
 
 const App = () => {
   return (
@@ -67,6 +68,7 @@ const App = () => {
             <Route path="/bearings" element={<Bearings />} />
             <Route path="/accessories" element={<Accessories />} />
             <Route path="/speed-frames" element={<SpeedFrames />} />
+            <Route path="/pro-series-x1" element={<ProSeriesX1 />} />
           </Routes>
           <Footer />
           <ToastContainer 
